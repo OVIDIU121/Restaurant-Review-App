@@ -4,156 +4,171 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register"
-    android:background="@drawable/backg"
-    >
+    android:background="@drawable/backgroun"
+    tools:context=".Register">
 
-    <TextView
-        android:id="@+id/tv_reg_ffbf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="130dp"
-        android:fontFamily="serif"
-        android:text="For foodies by foodies"
-        android:textSize="20sp"
-        android:textStyle="bold"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/et_reg_fname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="100dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Firstname"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_reg_ffbf" />
-
-    <EditText
-        android:id="@+id/et_reg_sname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="100dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Surname"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_reg_fname" />
-
-    <EditText
-        android:id="@+id/et_reg_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="100dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_reg_sname" />
-
-    <EditText
-        android:id="@+id/et_reg_pw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="100dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_reg_email" />
-
-    <EditText
-        android:id="@+id/et_reg_cpw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="100dp"
-        android:ems="10"
-        android:fontFamily="serif"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_reg_pw" />
-
-    <Button
-        android:id="@+id/btn_reg_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="150dp"
-        android:backgroundTint="#D6C8B4"
-        android:fontFamily="serif"
-        android:shadowColor="#000000"
-        android:text="Register"
-        android:textColor="#99000000"
-        android:textStyle="bold"
-        app:cornerRadius="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_reg_checktext"
-        app:strokeColor="#131313"
-        app:strokeWidth="2px" />
-
-    <TextView
-        android:id="@+id/id_reg_checktext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="45dp"
-        android:fontFamily="serif"
-        android:text="I accept the Terms of Service and Privacy Policy"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/id_reg_check"
-        app:layout_constraintTop_toBottomOf="@+id/et_reg_cpw" />
-
-    <CheckBox
-        android:id="@+id/id_reg_check"
-        android:layout_width="32dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="548dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toStartOf="@+id/id_reg_checktext"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintVertical_bias="1.0">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_reg_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="135dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="162dp"
+                android:backgroundTint="#D6C8B4"
+                android:fontFamily="serif"
+                android:shadowColor="#000000"
+                android:text="Register"
+                android:textColor="#99000000"
+                android:textStyle="bold"
+                app:cornerRadius="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_reg_checktext"
+                app:strokeColor="#131313"
+                app:strokeWidth="2px" />
+
+            <EditText
+                android:id="@+id/et_reg_fname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="101dp"
+                android:ems="10"
+                android:fontFamily="serif"
+                android:hint="Firstname"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_reg_ffbf" />
+
+            <EditText
+                android:id="@+id/et_reg_sname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="101dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="100dp"
+                android:ems="10"
+                android:fontFamily="serif"
+                android:hint="Surname"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_reg_fname" />
+
+            <EditText
+                android:id="@+id/et_reg_cpw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="101dp"
+                android:ems="10"
+                android:fontFamily="serif"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_reg_pw" />
+
+            <EditText
+                android:id="@+id/et_reg_pw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="102dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="100dp"
+                android:ems="10"
+                android:fontFamily="serif"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_reg_email" />
+
+            <TextView
+                android:id="@+id/id_reg_checktext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="serif"
+                android:text="I accept the Terms of Service and Privacy Policy"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/id_reg_check"
+                app:layout_constraintTop_toBottomOf="@+id/et_reg_cpw" />
+
+            <EditText
+                android:id="@+id/et_reg_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="101dp"
+                android:ems="10"
+                android:fontFamily="serif"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_reg_sname" />
+
+            <TextView
+                android:id="@+id/tv_reg_ffbf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="93dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="94dp"
+                android:fontFamily="serif"
+                android:text="For foodies by foodies"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/id_reg_check"
+                android:layout_width="32dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="512dp"
+                android:layout_marginEnd="9dp"
+                app:layout_constraintEnd_toStartOf="@+id/id_reg_checktext"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

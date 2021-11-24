@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "466753726851",
+    "firebase_url": "https://mobileappdevelopment-15143-default-rtdb.firebaseio.com",
     "project_id": "mobileappdevelopment-15143",
     "storage_bucket": "mobileappdevelopment-15143.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "466753726851-35b3juvlogrdcjr5hiigdqd6oubnrm72.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myfffd",
+            "certificate_hash": "bf65e3c15198dfa1b1162e2e9e86d61d6afd76cb"
+          }
+        },
         {
           "client_id": "466753726851-nlo4j508jdf3a7368iud61pajhu1olvc.apps.googleusercontent.com",
           "client_type": 3

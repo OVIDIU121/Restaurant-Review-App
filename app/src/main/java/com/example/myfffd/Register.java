@@ -61,11 +61,7 @@ public class Register extends AppCompatActivity
 
                 if (!TextUtils.isEmpty(et_pw.getText().toString()) &&
                         !TextUtils.isEmpty(et_cpw.getText().toString()) &&
-                        !TextUtils.isEmpty(et_email.getText().toString())&&
-                        !id_checkbox.isChecked()
-                )
-
-
+                        !TextUtils.isEmpty(et_email.getText().toString())) // still need to implement checkbox
                     if (et_pw.getText().toString().compareTo(et_cpw.getText().toString()) == 0)
                     {
 
@@ -84,6 +80,7 @@ public class Register extends AppCompatActivity
                                     //3. Save the object
                                     dbref.child(auth_id).setValue(user);
                                     Toast.makeText(Register.this, "Registration succesfull", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(Register.this, MainActivity.class));
                                 }
 
                             }).addOnFailureListener(new OnFailureListener() {
@@ -118,8 +115,7 @@ public class Register extends AppCompatActivity
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent go = new Intent(getApplicationContext(), TermsAndConditions.class);
-                startActivity(go);
+                startActivity(new Intent(Register.this, TermsAndConditions.class));
             }
         });
 
