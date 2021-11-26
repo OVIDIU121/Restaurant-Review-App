@@ -16,10 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myfffd.utility.AuthenticationUtility;
+import com.example.myfffd.utility.Session;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
@@ -55,7 +60,7 @@ public class Login extends AppCompatActivity {
         Button btn_login;
         login_email = findViewById(R.id.tv_email_pw_reset);
         login_password = findViewById(R.id.login_password);
-        btn_login = findViewById(R.id.btn_reset_pw);
+        btn_login = findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,15 +78,30 @@ public class Login extends AppCompatActivity {
                     login_password.requestFocus();
                     return;
                 }
-                try // try to login
-                {
                     mAuth.signInWithEmailAndPassword(sEmail,sPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
+                                FirebaseDatabase.getInstance().getReference("_user_")
+                                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for (DataSnapshot dss: snapshot.getChildren()){
+                                            User current_user = dss.getValue(User.class);
+                                            if(mAuth.getUid().equals(current_user.getAuth_id())) {
+                                                Session.ActiveSession.user = current_user; // save user in active session
+                                            }
+                                        }
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        System.out.println(error);
+                                    }
+                                });
                                 startActivity(new Intent(Login.this,MainActivity.class));// what activity to start if login is successful
                                 Toast.makeText(Login.this,"Login Successful !",Toast.LENGTH_SHORT).show();
+                                // save the current logged in user details in active session
                             }
                             else
                             {
@@ -89,12 +109,6 @@ public class Login extends AppCompatActivity {
                             }
                         }
                     });
-
-
-                }catch (Exception exception)
-                {
-                    Toast.makeText(Login.this, exception.getMessage(), Toast.LENGTH_LONG).show(); // show error, to be removed
-                }
             }
         });
         TextView forgotPW;

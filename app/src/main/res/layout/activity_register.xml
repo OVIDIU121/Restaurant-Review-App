@@ -22,32 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/btn_reg_register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="135dp"
-                android:layout_marginTop="34dp"
-                android:layout_marginEnd="162dp"
-                android:backgroundTint="#D6C8B4"
-                android:fontFamily="serif"
-                android:shadowColor="#000000"
-                android:text="Register"
-                android:textColor="#99000000"
-                android:textStyle="bold"
-                app:cornerRadius="30sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id_reg_checktext"
-                app:strokeColor="#131313"
-                app:strokeWidth="2px" />
-
             <EditText
                 android:id="@+id/et_reg_fname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="89dp"
                 android:layout_marginEnd="101dp"
                 android:ems="10"
                 android:fontFamily="serif"
@@ -93,6 +73,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_reg_pw" />
 
+            <TextView
+                android:id="@+id/tv_reg_ffbf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="37dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="37dp"
+                android:fontFamily="serif"
+                android:text="For foodies by foodies"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/et_reg_pw"
                 android:layout_width="wrap_content"
@@ -125,6 +121,25 @@
                 app:layout_constraintStart_toEndOf="@+id/id_reg_check"
                 app:layout_constraintTop_toBottomOf="@+id/et_reg_cpw" />
 
+            <Button
+                android:id="@+id/btn_reg_register"
+                android:layout_width="282dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="96dp"
+                android:layout_marginEnd="65dp"
+                android:backgroundTint="#E1DEDE"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="#040404"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_reg_check"
+                app:strokeColor="#fff" />
+
             <EditText
                 android:id="@+id/et_reg_email"
                 android:layout_width="wrap_content"
@@ -141,22 +156,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_reg_sname" />
-
-            <TextView
-                android:id="@+id/tv_reg_ffbf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="93dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="94dp"
-                android:fontFamily="serif"
-                android:text="For foodies by foodies"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <CheckBox
                 android:id="@+id/id_reg_check"

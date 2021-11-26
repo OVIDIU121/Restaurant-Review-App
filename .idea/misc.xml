@@ -3,21 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/drawable/side_nav_bar.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/drawable/test1.xml" value="0.2703125" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout-w1240dp/ImageCard.xml" value="0.209375" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout-w1240dp/Login.xml" value="0.228125" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.228125" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout-w1240dp/activity_register2.xml" value="0.228125" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout-w936dp/activity_login.xml" value="0.190625" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/Login.xml" value="0.21145833333333333" />
-        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.176" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_dashboard.xml" value="0.264" />
-        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_forgot_password.xml" value="0.264" />
-        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_forgot_password.xml" value="0.176" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_profile.xml" value="0.18958333333333333" />
-        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.234375" />
-        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_profile.xml" value="0.4" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_register.xml" value="0.176" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.152" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_update_userinfo.xml" value="0.2" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_welcome.xml" value="0.2" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/content_scrolling.xml" value="0.2" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/ic_baseline_image_search_24.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/ic_launcher_background.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/image_card.xml" value="0.4" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/layout.xml" value="0.175" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
       </map>
     </option>
   </component>

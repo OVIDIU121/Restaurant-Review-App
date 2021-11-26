@@ -8,18 +8,17 @@
     tools:context=".TermsAndConditions">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_reg_ffbf4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="130dp"
-        android:layout_weight="1"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="37dp"
         android:fontFamily="serif"
-        android:gravity="center"
         android:text="For foodies by foodies"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,13 +28,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="194dp"
         android:layout_marginEnd="157dp"
         android:layout_marginBottom="312dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -17,8 +16,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.myfffd.User;
-import com.example.myfffd.R;
+
+import com.example.myfffd.utility.Session;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -52,8 +51,6 @@ public class Register extends AppCompatActivity
         et_sname = findViewById(R.id.et_reg_sname);
         id_checkbox = findViewById(R.id.id_reg_check);
         register = findViewById(R.id.btn_reg_register);
-
-
         register.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -75,10 +72,11 @@ public class Register extends AppCompatActivity
                                     String auth_id = mAuth.getUid();
 
                                     //capture the fn and sn and save to database
-                                    User user = new User(et_fname.getText().toString(), et_sname.getText().toString(), et_email.getText().toString(), et_pw.getText().toString());
+                                    User user = new User(et_fname.getText().toString(), et_sname.getText().toString(), et_email.getText().toString(), et_pw.getText().toString(), mAuth.getUid(),"Alias","customer","");
 
                                     //3. Save the object
                                     dbref.child(auth_id).setValue(user);
+                                    Session.ActiveSession.user = user; // save the user in Active Session
                                     Toast.makeText(Register.this, "Registration succesfull", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(Register.this, MainActivity.class));
                                 }
@@ -118,13 +116,5 @@ public class Register extends AppCompatActivity
                 startActivity(new Intent(Register.this, TermsAndConditions.class));
             }
         });
-
-
-
-
-
-
-
-
     }
 }

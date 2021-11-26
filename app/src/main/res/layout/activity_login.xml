@@ -23,28 +23,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_forgotpassword1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginEnd="130dp"
-                android:fontFamily="serif"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
-                android:text="Welcome to Foodies"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/tv_forgotpassword_email"
                 android:layout_width="77dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="75dp"
-                android:layout_marginTop="88dp"
+                android:layout_marginTop="110dp"
                 android:layout_marginEnd="275dp"
                 android:fontFamily="serif"
                 android:text="Email"
@@ -52,8 +35,28 @@
                 android:textSize="20sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.625"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_forgotpassword1" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_reg_ffbf3" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="282dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="68dp"
+                android:layout_marginTop="92dp"
+                android:layout_marginEnd="61dp"
+                android:backgroundTint="#E1DEDE"
+                android:text="Log In"
+                android:textAllCaps="false"
+                android:textColor="#040404"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_main_forgotpw"
+                app:strokeColor="#fff" />
 
             <EditText
                 android:id="@+id/tv_email_pw_reset"
@@ -117,32 +120,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login_password" />
 
-    <Button
-        android:id="@+id/btn_reset_pw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="150dp"
-        android:backgroundTint="#D6C8B4"
-        android:fontFamily="serif"
-        android:text="Log In"
-        android:textColor="#99000000"
-        android:textStyle="bold"
-        app:cornerRadius="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_password"
-        app:strokeColor="#000000"
-        app:strokeWidth="2px" />
+            <TextView
+                android:id="@+id/tv_reg_ffbf3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="37dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="37dp"
+                android:fontFamily="serif"
+                android:text="For foodies by foodies"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_main_regnow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
-                android:layout_marginTop="12dp"
                 android:layout_marginEnd="80dp"
                 android:fontFamily="serif"
                 android:text="Not a foodie yet? Register Now, it's free!"
@@ -151,7 +149,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_reset_pw" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_login" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,32 +1,24 @@
 package com.example.myfffd;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.example.myfffd.utility.Session;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // log out
+        //
         Button btn_logout;
         btn_logout = findViewById(R.id.btn_dash_logout);
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -36,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
                 mAuth = FirebaseAuth.getInstance();
                 try {
                     mAuth.signOut();
+                    Session.ActiveSession.logout();
                     Toast.makeText(MainActivity.this, "Logged out successfully !", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(MainActivity.this, Login.class));
+                    finish(); // Destroy activity A and not exist in Back stack
                 }
                 catch (Exception exception)
                 {
@@ -45,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        ImageView tv_main_profile_pic;
+        tv_main_profile_pic = findViewById(R.id.tv_main_profile_pic);
+        tv_main_profile_pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Profile.class));
+            }
+        });
     }
 }

@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="162dp"
         android:layout_marginEnd="161dp"
         android:fontFamily="serif"
         android:text="Add Restaurant"
@@ -80,22 +80,7 @@
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_adash_fffd" />
-
-    <TextView
-        android:id="@+id/tv_adash_fffd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="130dp"
-        android:fontFamily="serif"
-        android:text="For foodies by foodies"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_reg_ffbf5" />
 
     <Button
         android:id="@+id/btn_adash_logout"
@@ -115,4 +100,20 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_adash_forum"
         app:strokeColor="#000000"
         app:strokeWidth="2px" />
+
+    <TextView
+        android:id="@+id/tv_reg_ffbf5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="37dp"
+        android:fontFamily="serif"
+        android:text="For foodies by foodies"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
