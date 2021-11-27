@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity{
         img_main_restaurants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(MainActivity.this, Restaurant_Activity.class));
             }
         });

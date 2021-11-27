@@ -59,7 +59,9 @@ public class Restaurant_Activity extends AppCompatActivity implements EateryAdap
     }
     @Override
     public void onEateryClick(int index) {
-        //void
+        Intent i = new Intent(Restaurant_Activity.this, RestaurantDetails.class);
+        i.putExtra("OBJECT", restaurantList.get(index));
+        startActivity(i);
     }
 
 }

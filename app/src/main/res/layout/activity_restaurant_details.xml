@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroun"
+    tools:context=".RestaurantDetails">
+
+    <TextView
+        android:id="@+id/tv_reg_ffbf10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="For foodies by foodies"
+        android:textColor="@color/logo_color"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="82dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_rest_details"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                app:layout_constraintBottom_toTopOf="@+id/rtb_rest_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_rest_details_name"
+                app:srcCompat="@drawable/restaurant_default" />
+
+            <TextView
+                android:id="@+id/tx_rest_details_name"
+                android:layout_width="300dp"
+                android:layout_height="46dp"
+                android:text="Name, address"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/iv_rest_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread" />
+
+            <RatingBar
+                android:id="@+id/rtb_rest_details"
+                style="?attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:numStars="5"
+                android:rating="2.5"
+                android:stepSize="0.1"
+                app:layout_constraintBottom_toTopOf="@+id/tx_rest_details_tel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_rest_details" />
+
+            <TextView
+                android:id="@+id/tx_rest_details_tel"
+                android:layout_width="300dp"
+                android:layout_height="24dp"
+                android:text="Telephone"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/tx_rest_details_desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rtb_rest_details" />
+
+            <TextView
+                android:id="@+id/tx_rest_details_desc"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/btn_rest_details_read"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_rest_details_tel" />
+
+            <Button
+                android:id="@+id/btn_rest_details_read"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/button_background_tint"
+                android:text="Read Reviews"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text"
+                android:textSize="16sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_rest_details_reserv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_rest_details_desc"
+                app:strokeColor="#fff" />
+
+            <Button
+                android:id="@+id/btn_rest_details_reserv"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/button_background_tint"
+                android:text="Make Reservation"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text"
+                android:textSize="16sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_rest_details_write"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_rest_details_read"
+                app:strokeColor="#fff" />
+
+            <Button
+                android:id="@+id/btn_rest_details_write"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/button_background_tint"
+                android:text="Write Reviews"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text"
+                android:textSize="16sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_rest_details_reserv"
+                app:strokeColor="#fff" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

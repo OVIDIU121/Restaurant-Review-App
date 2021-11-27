@@ -1,6 +1,9 @@
 package com.example.myfffd.models;
 
-public class Restaurant {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Restaurant implements Parcelable {
 
     private String name;
     private String city;
@@ -10,6 +13,29 @@ public class Restaurant {
     private String profile_picture;
     private String description;
     private int rating;
+
+    protected Restaurant(Parcel in) {
+        name = in.readString();
+        city = in.readString();
+        street = in.readString();
+        tel = in.readString();
+        postcode = in.readString();
+        profile_picture = in.readString();
+        description = in.readString();
+        rating = in.readInt();
+    }
+
+    public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
+        @Override
+        public Restaurant createFromParcel(Parcel in) {
+            return new Restaurant(in);
+        }
+
+        @Override
+        public Restaurant[] newArray(int size) {
+            return new Restaurant[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -90,4 +116,20 @@ public class Restaurant {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(city);
+        dest.writeString(street);
+        dest.writeString(tel);
+        dest.writeString(postcode);
+        dest.writeString(profile_picture);
+        dest.writeString(description);
+        dest.writeInt(rating);
+    }
 }
