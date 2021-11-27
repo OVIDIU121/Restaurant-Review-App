@@ -31,7 +31,7 @@ import com.squareup.picasso.Picasso;
 public class Profile extends AppCompatActivity {
     TextView tv_profile_fn,tv_profile_sn,tv_profile_em,tv_profile_alias,tv_profile_type,tv_profile_change;
     ImageView iv_profile_avatar;
-    Button btn_profile_back, btn_profile_upload;
+    Button btn_profile_back, btn_profile_upload, btn_profile_add_restaurant;
     StorageReference sref;
     Uri path;
     DatabaseReference updateData = FirebaseDatabase.getInstance().getReference("_user_").child(Session.ActiveSession.user.getAuth_id());
@@ -42,6 +42,16 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         if(Session.ActiveSession.checkLogin()) {
             updateProfile();// enable changes for user
+        }
+        btn_profile_add_restaurant = findViewById(R.id.btn_profile_add_restaurant);
+        if(Session.ActiveSession.user.getType().compareTo("admin")==0){
+            btn_profile_add_restaurant.setVisibility(View.VISIBLE);
+            btn_profile_add_restaurant.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Profile.this,AddRestaurant.class));
+                }
+            });
         }
 
         btn_profile_back = findViewById(R.id.btn_profile_back);
@@ -62,7 +72,7 @@ public class Profile extends AppCompatActivity {
         tv_profile_em.setText(Session.ActiveSession.user.getEm());
         tv_profile_alias.setText(Session.ActiveSession.user.getAlias());
         tv_profile_type.setText(Session.ActiveSession.user.getType());
-
+        btn_profile_upload = findViewById(R.id.btn_profile_upload);
         iv_profile_avatar = findViewById(R.id.iv_profile_avatar);
         if (!Session.ActiveSession.user.getProfile_pic_url().isEmpty()) {
             String url2 = Session.ActiveSession.user.getProfile_pic_url();
@@ -76,9 +86,10 @@ public class Profile extends AppCompatActivity {
                 i.setAction(getIntent().ACTION_GET_CONTENT);
                 startActivityForResult(i,150);
                 btn_profile_upload.setVisibility(View.VISIBLE);
+
             }
         });
-        btn_profile_upload = findViewById(R.id.btn_profile_upload);
+
         sref = FirebaseStorage.getInstance().getReference("profile_photos");
 
         btn_profile_upload.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +112,7 @@ public class Profile extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(Profile.this, e.toString(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(Profile.this, "File could not be uploaded, please check your internet connectivity !", Toast.LENGTH_LONG).show();
                                 reference.delete();
                             }
                         });
@@ -190,5 +201,7 @@ public class Profile extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 }

@@ -1,5 +1,6 @@
 package com.example.myfffd.utility;
 
+import android.text.TextUtils;
 import android.util.Patterns;
 
 public final class AuthenticationUtility {
@@ -19,5 +20,6 @@ public final class AuthenticationUtility {
         }
         return false;
     }
+
 
 }

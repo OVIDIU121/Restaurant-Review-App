@@ -47,5 +47,14 @@ public class MainActivity extends AppCompatActivity{
                 startActivity(new Intent(MainActivity.this, Profile.class));
             }
         });
+        ImageView img_main_restaurants;
+        img_main_restaurants = findViewById(R.id.img_main_restaurants);
+        img_main_restaurants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Restaurant_Activity.class));
+            }
+        });
+
     }
 }

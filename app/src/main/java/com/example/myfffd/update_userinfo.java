@@ -27,6 +27,7 @@ public class update_userinfo extends AppCompatActivity {
         }
         else {
             startActivity(new Intent(update_userinfo.this, Profile.class));
+            finish();
         }
     }
     private void update(String i){
@@ -58,6 +59,7 @@ public class update_userinfo extends AppCompatActivity {
 
                 Toast.makeText(update_userinfo.this,"Details updated successfully",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(update_userinfo.this,Profile.class));
+                finish();
             }
         });
 

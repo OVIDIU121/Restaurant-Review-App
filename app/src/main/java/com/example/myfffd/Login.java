@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myfffd.models.User;
 import com.example.myfffd.utility.AuthenticationUtility;
 import com.example.myfffd.utility.Session;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -60,7 +61,7 @@ public class Login extends AppCompatActivity {
         Button btn_login;
         login_email = findViewById(R.id.tv_email_pw_reset);
         login_password = findViewById(R.id.login_password);
-        btn_login = findViewById(R.id.btn_login);
+        btn_login = findViewById(R.id.btn_rest_add);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +102,7 @@ public class Login extends AppCompatActivity {
                                 });
                                 startActivity(new Intent(Login.this,MainActivity.class));// what activity to start if login is successful
                                 Toast.makeText(Login.this,"Login Successful !",Toast.LENGTH_SHORT).show();
+                                finish();
                                 // save the current logged in user details in active session
                             }
                             else
@@ -117,6 +119,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this, ForgotPassword.class));
+                finish();
             }
         });
     }

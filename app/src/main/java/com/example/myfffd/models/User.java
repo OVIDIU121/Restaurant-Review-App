@@ -1,4 +1,4 @@
-package com.example.myfffd;
+package com.example.myfffd.models;
 
 public class User {
     private String fn;

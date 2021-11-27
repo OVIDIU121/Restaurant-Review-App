@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFFFD">
         <activity
+            android:name=".Welcome"
+            android:exported="false" />
+        <activity
+            android:name=".Restaurant_Activity"
+            android:exported="false" />
+        <activity
             android:name=".update_userinfo"
             android:exported="false" />
         <activity
@@ -34,7 +40,7 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".Welcome"
+            android:name=".AddRestaurant"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

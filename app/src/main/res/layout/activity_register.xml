@@ -7,9 +7,26 @@
     android:background="@drawable/backgroun"
     tools:context=".Register">
 
+    <TextView
+        android:id="@+id/tv_reg_ffbf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="72dp"
+        android:fontFamily="serif"
+        android:text="For foodies by foodies"
+        android:textColor="@color/logo_color"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="82dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
-                android:layout_marginTop="89dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="101dp"
                 android:ems="10"
                 android:fontFamily="serif"
@@ -36,8 +53,9 @@
                 android:minHeight="48dp"
                 android:textStyle="bold|italic"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_reg_ffbf" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/et_reg_sname"
@@ -72,22 +90,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_reg_pw" />
-
-            <TextView
-                android:id="@+id/tv_reg_ffbf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="37dp"
-                android:fontFamily="serif"
-                android:text="For foodies by foodies"
-                android:textColor="#000000"
-                android:textSize="24sp"
-                android:textStyle="bold|italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/et_reg_pw"
@@ -128,10 +130,10 @@
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="96dp"
                 android:layout_marginEnd="65dp"
-                android:backgroundTint="#E1DEDE"
+                android:backgroundTint="@color/button_background_tint"
                 android:text="Register"
                 android:textAllCaps="false"
-                android:textColor="#040404"
+                android:textColor="@color/button_text"
                 android:textSize="20sp"
                 app:cornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -161,9 +163,9 @@
                 android:id="@+id/id_reg_check"
                 android:layout_width="32dp"
                 android:layout_height="49dp"
-                android:layout_marginStart="42dp"
-                android:layout_marginTop="512dp"
-                android:layout_marginEnd="9dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="400dp"
+                android:layout_marginEnd="14dp"
                 app:layout_constraintEnd_toStartOf="@+id/id_reg_checktext"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

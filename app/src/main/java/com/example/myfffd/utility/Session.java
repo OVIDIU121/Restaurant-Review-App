@@ -1,6 +1,6 @@
 package com.example.myfffd.utility;
 
-import com.example.myfffd.User;
+import com.example.myfffd.models.User;
 
 public class Session {
 
@@ -11,7 +11,6 @@ public class Session {
         public static String option;
         public static void logout()
         {
-            cookie = null;
             option = null;
             user = null; // reset session class
         }

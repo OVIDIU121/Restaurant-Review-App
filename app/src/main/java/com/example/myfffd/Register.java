@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myfffd.models.User;
 import com.example.myfffd.utility.Session;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -70,15 +71,16 @@ public class Register extends AppCompatActivity
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                    // Save in authentification
                                     String auth_id = mAuth.getUid();
-
+                                    String default_pic = "https://firebasestorage.googleapis.com/v0/b/mobileappdevelopment-15143.appspot.com/o/profile_photos%2Fblank_user.png?alt=media&token=b435b87d-f63d-483f-967e-9267b1fc62eb";
                                     //capture the fn and sn and save to database
-                                    User user = new User(et_fname.getText().toString(), et_sname.getText().toString(), et_email.getText().toString(), et_pw.getText().toString(), mAuth.getUid(),"Alias","customer","");
+                                    User user = new User(et_fname.getText().toString(), et_sname.getText().toString(), et_email.getText().toString(), et_pw.getText().toString(), mAuth.getUid(),"Alias","user",default_pic);
 
                                     //3. Save the object
                                     dbref.child(auth_id).setValue(user);
                                     Session.ActiveSession.user = user; // save the user in Active Session
                                     Toast.makeText(Register.this, "Registration succesfull", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(Register.this, MainActivity.class));
+                                    finish();
                                 }
 
                             }).addOnFailureListener(new OnFailureListener() {
@@ -114,6 +116,7 @@ public class Register extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Register.this, TermsAndConditions.class));
+                finish();
             }
         });
     }
