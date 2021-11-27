@@ -8,15 +8,28 @@
     android:visibility="visible"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/tv_main_text_user"
+        android:layout_width="62dp"
+        android:layout_height="13dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="320dp"
+        android:text="Dashboard"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_profile_pic" />
+
     <ImageView
         android:id="@+id/tv_main_profile_pic"
         android:layout_width="57dp"
         android:layout_height="50dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/blank_user"
-        app:layout_constraintEnd_toStartOf="@+id/tv_dash_fffd"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/settings_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,9 +37,9 @@
         android:id="@+id/tv_dash_fffd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="26dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="33dp"
         android:fontFamily="serif"
         android:text="For foodies by foodies"
         android:textColor="@color/logo_color"
@@ -36,24 +49,9 @@
         app:layout_constraintStart_toEndOf="@+id/tv_main_profile_pic"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_main_text_user"
-        android:layout_width="70dp"
-        android:layout_height="15dp"
-        android:layout_marginEnd="305dp"
-        android:text="Dashboard"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_main_profile_pic" />
-
     <Button
         android:id="@+id/btn_dash_logout"
-        android:layout_width="282dp"
+        android:layout_width="300dp"
         android:layout_height="58dp"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="65dp"
@@ -63,7 +61,9 @@
         android:textColor="@color/button_text"
         android:textSize="20sp"
         app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3"
         app:strokeColor="#fff" />
@@ -93,32 +93,30 @@
                 android:id="@+id/tv_dash_restaurant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="144dp"
                 android:fontFamily="serif"
                 android:text="Restaurants"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/cardView1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread" />
 
             <TextView
                 android:id="@+id/tv_dash_forum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="171dp"
-                android:layout_marginEnd="171dp"
                 android:fontFamily="serif"
                 android:text="Forum"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/cardView3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
@@ -126,15 +124,14 @@
                 android:id="@+id/tv_dash_sfood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="150dp"
-                android:layout_marginEnd="144dp"
                 android:fontFamily="serif"
                 android:text="Street Food"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/cardView2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView1" />
 
@@ -142,11 +139,11 @@
                 android:id="@+id/cardView3"
                 android:layout_width="304dp"
                 android:layout_height="149dp"
-                android:layout_marginStart="53dp"
-                android:layout_marginEnd="54dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_dash_forum">
 
@@ -166,11 +163,11 @@
                 android:id="@+id/cardView2"
                 android:layout_width="304dp"
                 android:layout_height="149dp"
-                android:layout_marginStart="53dp"
-                android:layout_marginEnd="54dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_dash_forum"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_dash_sfood">
 
@@ -190,12 +187,11 @@
                 android:id="@+id/cardView1"
                 android:layout_width="304dp"
                 android:layout_height="149dp"
-                android:layout_marginStart="53dp"
-                android:layout_marginEnd="54dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_dash_sfood"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_dash_restaurant">
 

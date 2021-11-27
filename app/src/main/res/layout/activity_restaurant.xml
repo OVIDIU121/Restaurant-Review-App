@@ -25,19 +25,17 @@
 
     <Button
         android:id="@+id/btn_restaurant_back"
-        android:layout_width="282dp"
+        android:layout_width="300dp"
         android:layout_height="58dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="65dp"
         android:backgroundTint="@color/button_background_tint"
         android:text="Back"
         android:textAllCaps="false"
         android:textColor="@color/button_text"
         android:textSize="20sp"
         app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/restaurant_rv"
         app:strokeColor="#fff" />
