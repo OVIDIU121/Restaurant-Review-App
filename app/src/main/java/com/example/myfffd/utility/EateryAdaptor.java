@@ -8,17 +8,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myfffd.R;
-import com.example.myfffd.models.User;
+import com.example.myfffd.models.Restaurant;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class EateryAdaptor extends RecyclerView.Adapter<EateryAdaptor.EateryHolder> {
-    List<User> userList;
+    List<Restaurant> restaurantList;
 
     EateryHolder.OnEateryClickListener listener;
-    public EateryAdaptor(List<User> userList, EateryHolder.OnEateryClickListener _listener) {
-        this.userList = userList;
+    public EateryAdaptor(List<Restaurant> restaurantList, EateryHolder.OnEateryClickListener _listener) {
+        this.restaurantList = restaurantList;
         listener= _listener;
     }
 
@@ -38,24 +38,26 @@ public class EateryAdaptor extends RecyclerView.Adapter<EateryAdaptor.EateryHold
 
     @Override
     public void onBindViewHolder(@NonNull EateryHolder holder, int position) {
-        Picasso.get().load(userList.get(position).getProfile_pic_url()).fit().into(holder.iv); //get url in assignemnt
-        holder.tv.setText(userList.get(position).getFn());//get restaurant name in assignment
+        Picasso.get().load(restaurantList.get(position).getProfile_picture()).fit().into(holder.iv);
+        holder.tv.setText(restaurantList.get(position).getName() +", " + restaurantList.get(position).getCity());
+        holder.tv_description.setText(restaurantList.get(position).getDescription());
     }
 
     // Using Abstraction, Encapsulation, Polymorphism and Inheritance
     @Override
     public int getItemCount() {
-        return userList.size();
+        return restaurantList.size();
     }
 
     public static class EateryHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         ImageView iv;
-        TextView tv;
+        TextView tv, tv_description;
         OnEateryClickListener listener;
         public EateryHolder(@NonNull View itemView, OnEateryClickListener _listener) {
             super(itemView);
             iv = itemView.findViewById(R.id.eatery_card_image);
+            tv_description = itemView.findViewById(R.id.tv_description);
             tv = itemView.findViewById(R.id.eatery_text);// bind to widget views
             listener = _listener;
             itemView.setOnClickListener(this);

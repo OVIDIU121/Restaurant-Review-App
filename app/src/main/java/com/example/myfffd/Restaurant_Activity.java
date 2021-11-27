@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.myfffd.models.User;
+import com.example.myfffd.models.Restaurant;
 import com.example.myfffd.utility.EateryAdaptor;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,21 +24,21 @@ public class Restaurant_Activity extends AppCompatActivity implements EateryAdap
 
     RecyclerView rv;
     EateryAdaptor adaptor;
-    List<User> userList = new ArrayList<>();
+    List<Restaurant> restaurantList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
         rv = findViewById(R.id.restaurant_rv);
         rv.setLayoutManager(new LinearLayoutManager(Restaurant_Activity.this)); // default vertical scrolling view
-        FirebaseDatabase.getInstance().getReference("_user_").addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("_restaurants_").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dss: snapshot.getChildren())
                 {
-                    userList.add(dss.getValue(User.class));
+                    restaurantList.add(dss.getValue(Restaurant.class));
                 }
-                adaptor = new EateryAdaptor(userList, Restaurant_Activity.this);
+                adaptor = new EateryAdaptor(restaurantList, Restaurant_Activity.this);
                 rv.setAdapter(adaptor);
             }
 
