@@ -34,20 +34,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         TextView textView = findViewById(R.id.tv_main_regnow);
-        String text = "Not a foodie yet? Register Now, it's free!";
-        SpannableString ss = new SpannableString(text);
-        ClickableSpan clickableSpan = new ClickableSpan() {
-            @Override
-            public void onClick( View v) {
-
-            }
-
-        };
-        ss.setSpan(clickableSpan, 18,31, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE );
-        textView.setText(ss);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
-
-        textView = (TextView) findViewById(R.id.tv_main_regnow);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

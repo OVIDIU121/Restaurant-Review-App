@@ -3,6 +3,8 @@ package com.example.myfffd.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Map;
+
 public class Restaurant implements Parcelable {
 
     private String name;
@@ -12,7 +14,23 @@ public class Restaurant implements Parcelable {
     private String postcode;
     private String profile_picture;
     private String description;
-    private int rating;
+    private float rating;
+    private Map<String, String> review;
+
+    public Restaurant() {
+    }
+
+    public Restaurant(String name, String city, String street, String tel, String postcode, String profile_picture, String description, float rating, Map<String, String> review) {
+        this.name = name;
+        this.city = city;
+        this.street = street;
+        this.tel = tel;
+        this.postcode = postcode;
+        this.profile_picture = profile_picture;
+        this.description = description;
+        this.rating = rating;
+        this.review = review;
+    }
 
     protected Restaurant(Parcel in) {
         name = in.readString();
@@ -22,7 +40,24 @@ public class Restaurant implements Parcelable {
         postcode = in.readString();
         profile_picture = in.readString();
         description = in.readString();
-        rating = in.readInt();
+        rating = in.readFloat();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(city);
+        dest.writeString(street);
+        dest.writeString(tel);
+        dest.writeString(postcode);
+        dest.writeString(profile_picture);
+        dest.writeString(description);
+        dest.writeFloat(rating);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
@@ -93,43 +128,20 @@ public class Restaurant implements Parcelable {
         this.description = description;
     }
 
-    public int getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 
-
-    public Restaurant() {    }
-
-    public Restaurant(String name, String city, String street, String tel, String postcode, String profile_picture, String description, int rating) {
-        this.name = name;
-        this.city = city;
-        this.street = street;
-        this.tel = tel;
-        this.postcode = postcode;
-        this.profile_picture = profile_picture;
-        this.description = description;
-        this.rating = rating;
+    public Map<String, String> getReview() {
+        return review;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-        dest.writeString(city);
-        dest.writeString(street);
-        dest.writeString(tel);
-        dest.writeString(postcode);
-        dest.writeString(profile_picture);
-        dest.writeString(description);
-        dest.writeInt(rating);
+    public void setReview(Map<String, String> review) {
+        this.review = review;
     }
 }
+

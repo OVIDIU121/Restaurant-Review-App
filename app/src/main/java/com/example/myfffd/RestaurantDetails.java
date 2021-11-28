@@ -2,8 +2,10 @@ package com.example.myfffd;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -22,6 +24,7 @@ public class RestaurantDetails extends AppCompatActivity {
         ImageView iv_rest_details;
         RatingBar rtb_rest_details;
         Button btn_rest_details_read,btn_rest_details_reserv, btn_rest_details_write;
+
         tx_rest_details_name = findViewById(R.id.tx_rest_details_name);
         tx_rest_details_tel = findViewById(R.id.tx_rest_details_tel);
         tx_rest_details_desc = findViewById(R.id.tx_rest_details_desc);
@@ -37,7 +40,31 @@ public class RestaurantDetails extends AppCompatActivity {
         tx_rest_details_desc.setText(restaurant.getDescription());
         Picasso.get().load(restaurant.getProfile_picture()).fit().into(iv_rest_details);
         rtb_rest_details.setRating(restaurant.getRating());
+        rtb_rest_details.setIsIndicator(true);
+        btn_rest_details_reserv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(RestaurantDetails.this, BookRestaurant.class);
+                i.putExtra("OBJECT", restaurant);
+                startActivity(i);
+            }
+        });
 
+        btn_rest_details_write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(RestaurantDetails.this, WriteReviews.class);
+                i.putExtra("OBJECT", restaurant);
+                startActivity(i);
+            }
+        });
+
+        btn_rest_details_read.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 }

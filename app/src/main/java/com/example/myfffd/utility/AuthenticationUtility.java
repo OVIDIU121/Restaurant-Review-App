@@ -3,6 +3,9 @@ package com.example.myfffd.utility;
 import android.text.TextUtils;
 import android.util.Patterns;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public final class AuthenticationUtility {
 
     public static boolean isEmailValid(String email) {
@@ -19,6 +22,13 @@ public final class AuthenticationUtility {
             return true;
         }
         return false;
+
+    }
+    public static Map<String, String> articleMapOne;
+    static {
+        articleMapOne = new HashMap<>();
+        articleMapOne.put("ar01", "Intro to Map");
+        articleMapOne.put("ar02", "Some article");
     }
 
 

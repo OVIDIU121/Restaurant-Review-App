@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.myfffd.models.Restaurant;
 import com.example.myfffd.models.User;
 import com.example.myfffd.utility.AuthenticationUtility;
+import com.example.myfffd.utility.DateTime;
 import com.example.myfffd.utility.Session;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,6 +34,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import java.util.Map;
 
 public class AddRestaurant extends AppCompatActivity {
     ImageView iv_rest_picture;
@@ -78,6 +81,8 @@ public class AddRestaurant extends AppCompatActivity {
                     String rest_id = et_rest_name.getText().toString() + "-" + et_rest_postcode.getText().toString();
                     // check if the id already exists
                     dbref.addListenerForSingleValueEvent(new ValueEventListener() {
+                        private Map <String,String> test = null;
+
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for (DataSnapshot dss: snapshot.getChildren()) {
@@ -85,13 +90,13 @@ public class AddRestaurant extends AppCompatActivity {
                                 String current_rest_id = current_restaurant.getName() + "-" + current_restaurant.getPostcode();
                                 if(!rest_id.equals(current_rest_id)){
                                     String url = "https://firebasestorage.googleapis.com/v0/b/mobileappdevelopment-15143.appspot.com/o/restaurant_photos%2Frestaurant_default.png?alt=media&token=23bf735f-c866-4309-9655-6793689fab74";
+                                    Restaurant restaurant = new Restaurant (et_rest_name.getText().toString(),et_rest_city.getText().toString(),
+                                            et_rest_street.getText().toString(),et_rest_tel.getText().toString(),et_rest_postcode.getText().toString(),
+                                            url,et_rest_desc.getText().toString(),0, test); // create restaurant object
+                                    dbref.child(et_rest_name.getText().toString()+ "-" + et_rest_postcode.getText().toString()).setValue(restaurant);
                                     if(check[0] == true){
                                         uploadPic(rest_id); // try to upload pic to firebase storage
                                     }
-                                    Restaurant restaurant = new Restaurant (et_rest_name.getText().toString(),et_rest_city.getText().toString(),
-                                            et_rest_street.getText().toString(),et_rest_tel.getText().toString(),et_rest_postcode.getText().toString(),
-                                            url,et_rest_desc.getText().toString(),0); // create restaurant object
-                                    dbref.child(et_rest_name.getText().toString()+ "-" + et_rest_postcode.getText().toString()).setValue(restaurant);
                                     Toast.makeText(AddRestaurant.this,"Restaurant successfully added to app !" ,Toast.LENGTH_SHORT).show();
                                 }
                                 else {

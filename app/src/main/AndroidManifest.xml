@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFFFD">
         <activity
+            android:name=".ReadRestReviews"
+            android:exported="false" />
+        <activity
+            android:name=".WriteReviews"
+            android:exported="false" />
+        <activity
+            android:name=".BookRestaurant"
+            android:exported="false" />
+        <activity
             android:name=".RestaurantDetails"
             android:exported="false" />
         <activity
