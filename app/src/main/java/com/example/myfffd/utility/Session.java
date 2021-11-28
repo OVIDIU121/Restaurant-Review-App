@@ -2,6 +2,8 @@ package com.example.myfffd.utility;
 
 import com.example.myfffd.models.User;
 
+import java.util.Map;
+
 public class Session {
 
     public static class ActiveSession

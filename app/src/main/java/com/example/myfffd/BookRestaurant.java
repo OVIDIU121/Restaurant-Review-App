@@ -24,8 +24,8 @@ public class BookRestaurant extends AppCompatActivity {
         Button btn_book_reserve;
         DatePicker dt_book_picker;
 
-        tx_book_name = findViewById(R.id.tx_review_name);
-        btn_book_reserve = findViewById(R.id.btn_review_write);
+        tx_book_name = findViewById(R.id.tx_review_read_name);
+        btn_book_reserve = findViewById(R.id.btn_review_read_next);
         dt_book_picker = findViewById(R.id.dt_book_picker);
 
         tx_book_name.setText(restaurant.getName());

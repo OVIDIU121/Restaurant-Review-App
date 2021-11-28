@@ -1,5 +1,6 @@
 package com.example.myfffd;
 
+import androidx.annotation.RequiresPermission;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,7 +13,10 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.myfffd.models.Restaurant;
+import com.example.myfffd.utility.Session;
 import com.squareup.picasso.Picasso;
+
+import java.util.Locale;
 
 public class RestaurantDetails extends AppCompatActivity {
 
@@ -41,6 +45,16 @@ public class RestaurantDetails extends AppCompatActivity {
         Picasso.get().load(restaurant.getProfile_picture()).fit().into(iv_rest_details);
         rtb_rest_details.setRating(restaurant.getRating());
         rtb_rest_details.setIsIndicator(true);
+        if (Session.ActiveSession.user.getType().toLowerCase(Locale.ROOT).compareTo("critic") == 0
+                || Session.ActiveSession.user.getType().toLowerCase(Locale.ROOT).compareTo("admin") == 0)
+        {
+            btn_rest_details_write.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            btn_rest_details_write.setVisibility(View.INVISIBLE);
+        }
+
         btn_rest_details_reserv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +76,9 @@ public class RestaurantDetails extends AppCompatActivity {
         btn_rest_details_read.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(RestaurantDetails.this, ReadRestReviews.class);
+                i.putExtra("OBJECT", restaurant);
+                startActivity(i);
             }
         });
 

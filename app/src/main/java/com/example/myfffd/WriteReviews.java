@@ -33,9 +33,9 @@ public class WriteReviews extends AppCompatActivity {
 
         Restaurant restaurant =getIntent().getParcelableExtra("OBJECT");
         tx_review_input = findViewById(R.id.tx_review_input);
-        tx_review_name = findViewById(R.id.tx_review_name);
-        rtb_review_rating = findViewById(R.id.rtb_review_rating);
-        btn_review_write = findViewById(R.id.btn_review_write);
+        tx_review_name = findViewById(R.id.tx_review_read_name);
+        rtb_review_rating = findViewById(R.id.rtb_review_read_rating);
+        btn_review_write = findViewById(R.id.btn_review_read_next);
 
         tx_review_name.setText(restaurant.getName());
         rtb_review_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -48,13 +48,23 @@ public class WriteReviews extends AppCompatActivity {
         btn_review_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Map<String, String> map  = new HashMap<String, String>() {{
-                    put(Session.ActiveSession.user.getAuth_id(), tx_review_input.getText().toString());
-                }};
-                restaurant.setReview(map);
-                Toast.makeText(WriteReviews.this,"Review Succesfully uploaded !",Toast.LENGTH_SHORT).show();
-                dbref.child(restaurant.getName() + "-" + restaurant.getPostcode()).child("rating").setValue(restaurant.getRating());
-                dbref.child(restaurant.getName() + "-" + restaurant.getPostcode()).child("review").child(Session.ActiveSession.user.getAuth_id()).setValue(tx_review_input.getText().toString());
+                int textLength = (tx_review_input.getText().toString()).length();
+                if(textLength < 481){
+                    Map<String, String> map  = new HashMap<String, String>() {{
+                        put(Session.ActiveSession.user.getAuth_id(), tx_review_input.getText().toString());
+                    }};
+                    restaurant.setReview(map);
+                    dbref.child(restaurant.getName() + "-" + restaurant.getPostcode()).child("rating").setValue(restaurant.getRating());
+                    dbref.child(restaurant.getName() + "-" + restaurant.getPostcode()).child("review").child(Session.ActiveSession.user.getAuth_id()).setValue(tx_review_input.getText().toString());
+                    Toast.makeText(WriteReviews.this,"Review Succesfully uploaded !",Toast.LENGTH_SHORT).show();
+                }
+                else if (textLength < 20){
+                    Toast.makeText(WriteReviews.this,"Please write a valid sentence ! \n Only: " + textLength + "written.",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(WriteReviews.this,"You wrote: " + textLength + " characters, the review must be under 480 characters !",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 

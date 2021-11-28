@@ -4,6 +4,144 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroun"
     tools:context=".ReadRestReviews">
+
+
+    <TextView
+        android:id="@+id/tv_reg_ffbf11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="72dp"
+        android:fontFamily="serif"
+        android:text="For foodies by foodies"
+        android:textColor="@color/logo_color"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="false"
+        android:layout_marginTop="82dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tx_review_read_name"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:fontFamily="serif"
+                android:hint="Restaurant name"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/rtb_review_read_rating"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_review_read_next"
+                android:layout_width="150dp"
+                android:layout_height="58dp"
+                android:backgroundTint="@color/button_background_tint"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_review_read_previous"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_review_read_previous"
+                app:layout_constraintTop_toTopOf="@+id/btn_review_read_previous"
+                app:strokeColor="#fff" />
+
+            <RatingBar
+                android:id="@+id/rtb_review_read_rating"
+                style="@style/Widget.AppCompat.RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:indeterminate="false"
+                android:numStars="5"
+                android:rating="2.5"
+                android:stepSize="0.1"
+                app:layout_constraintBottom_toTopOf="@+id/tx_rest_read_review_alias"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_review_read_name"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tx_rest_read_review"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+                android:singleLine="false"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/btn_review_read_next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_rest_read_review_alias" />
+
+            <TextView
+                android:id="@+id/tx_rest_read_review_alias"
+                android:layout_width="300dp"
+                android:layout_height="24dp"
+                android:hint="Alias"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/tx_rest_read_review"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rtb_review_read_rating" />
+
+            <Button
+                android:id="@+id/btn_review_read_previous"
+                android:layout_width="150dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="43dp"
+                android:backgroundTint="@color/button_background_tint"
+                android:text="Previous"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_review_read_next"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_rest_read_review"
+                app:strokeColor="#fff" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
