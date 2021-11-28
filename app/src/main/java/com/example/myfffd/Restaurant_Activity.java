@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.example.myfffd.models.Restaurant;
 import com.example.myfffd.utility.EateryAdaptor;
+import com.example.myfffd.utility.Session;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -30,6 +31,18 @@ public class Restaurant_Activity extends AppCompatActivity implements EateryAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
         rv = findViewById(R.id.restaurant_rv);
+        Button btn_restaurant_add;
+        btn_restaurant_add = findViewById(R.id.btn_restaurant_add);
+        if(Session.ActiveSession.user.getType().compareTo("admin")==0){
+            btn_restaurant_add.setVisibility(View.VISIBLE);
+            btn_restaurant_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Restaurant_Activity.this,AddRestaurant.class));
+                }
+            });
+        }
+
         rv.setLayoutManager(new LinearLayoutManager(Restaurant_Activity.this)); // default vertical scrolling view
         FirebaseDatabase.getInstance().getReference("_restaurants_").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -47,15 +60,7 @@ public class Restaurant_Activity extends AppCompatActivity implements EateryAdap
 
             }
         });
-        Button btn_restaurant_back;
-        btn_restaurant_back = findViewById(R.id.btn_restaurant_back);
-        btn_restaurant_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Restaurant_Activity.this, MainActivity.class));
-                finish();
-            }
-        });
+
     }
     @Override
     public void onEateryClick(int index) {
