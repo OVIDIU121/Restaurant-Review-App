@@ -56,7 +56,23 @@ public class ReadRestReviews extends AppCompatActivity {
                     i++;
                     if(count < i){
                         index = 0;
-                        tx_rest_read_review_alias.setText(idList.get(index));
+                        DatabaseReference dbref_user = FirebaseDatabase.getInstance().getReference("_user_");
+                        dbref_user.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot dss: snapshot.getChildren()) {
+                                    User current_user = dss.getValue(User.class);
+                                    if (idList.get(index).equals(current_user.getAuth_id())){
+                                        tx_rest_read_review_alias.setText(current_user.getAlias());
+                                    }
+                                }
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
                         tx_rest_read_review.setText(reviewList.get(index));
                             btn_review_read_next.setOnClickListener(new View.OnClickListener() {
                                 @Override
