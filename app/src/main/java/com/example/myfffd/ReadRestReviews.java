@@ -69,17 +69,30 @@ public class ReadRestReviews extends AppCompatActivity {
                             }
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
+                                System.out.println(error);
                             }
                         });
-
                         tx_rest_read_review.setText(reviewList.get(index));
                             btn_review_read_next.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     if (idList.size() > index+1) {
                                         index++;
-                                        tx_rest_read_review_alias.setText(idList.get(index));
+                                        dbref_user.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                for (DataSnapshot dss: snapshot.getChildren()) {
+                                                    User current_user = dss.getValue(User.class);
+                                                    if (idList.get(index).equals(current_user.getAuth_id())){
+                                                        tx_rest_read_review_alias.setText(current_user.getAlias());
+                                                    }
+                                                }
+                                            }
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+                                                System.out.println(error);
+                                            }
+                                        });
                                         tx_rest_read_review.setText(reviewList.get(index));
                                     }
                                 }
@@ -89,7 +102,21 @@ public class ReadRestReviews extends AppCompatActivity {
                                 public void onClick(View v) {
                                     if (index >0) {
                                         index--;
-                                        tx_rest_read_review_alias.setText(idList.get(index));
+                                        dbref_user.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                for (DataSnapshot dss: snapshot.getChildren()) {
+                                                    User current_user = dss.getValue(User.class);
+                                                    if (idList.get(index).equals(current_user.getAuth_id())){
+                                                        tx_rest_read_review_alias.setText(current_user.getAlias());
+                                                    }
+                                                }
+                                            }
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+                                                System.out.println(error);
+                                            }
+                                        });
                                         tx_rest_read_review.setText(reviewList.get(index));
                                     }
                                 }
