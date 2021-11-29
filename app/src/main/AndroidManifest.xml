@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFFFD">
         <activity
+            android:name=".ReadStallReviews"
+            android:exported="false" />
+        <activity
+            android:name=".StallWriteReviews"
+            android:exported="false" />
+        <activity
             android:name=".StreetFoodDetails"
             android:exported="false" />
         <activity

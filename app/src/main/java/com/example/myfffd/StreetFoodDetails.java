@@ -1,6 +1,8 @@
 package com.example.myfffd;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,18 +49,18 @@ public class StreetFoodDetails extends AppCompatActivity {
         btn_stall_details_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent i = new Intent(StreetFoodDetails.this, StallWriteReviews.class);
-//                i.putExtra("OBJECT", streetFood);
-//                startActivity(i);
+                Intent i = new Intent(StreetFoodDetails.this, StallWriteReviews.class);
+                i.putExtra("STALL", streetFood);
+                startActivity(i);
             }
         });
 
         btn_stall_details_read.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent i = new Intent(StreetFoodDetails.this, ReadstallReviews.class);
-//                i.putExtra("OBJECT", streetFood);
-//                startActivity(i);
+                Intent i = new Intent(StreetFoodDetails.this, ReadStallReviews.class);
+                i.putExtra("STALL", streetFood);
+                startActivity(i);
             }
         });
 

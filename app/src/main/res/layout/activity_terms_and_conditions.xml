@@ -24,17 +24,35 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_tac_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginEnd="157dp"
-        android:layout_marginBottom="312dp"
+        android:id="@+id/btn_terms_back"
+        android:layout_width="300dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="68dp"
         android:backgroundTint="@color/button_background_tint"
-        android:text="Button"
+        android:text="Back"
+        android:textAllCaps="false"
         android:textColor="@color/button_text"
+        android:textSize="20sp"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:strokeColor="#fff" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="299dp"
+        android:layout_height="446dp"
+        android:text="You agree not to use the App in any way that:  is unlawful, illegal or unauthorised; is defamatory of any other person; is obscene or offensive; promotes discrimination based on race, sex, religion, nationality, disability, sexual orientation or age; infringes any copyright, database right or trade mark of any other person; is likely to harass, upset, embarrass, alarm or annoy any other person; is likely to disrupt our service in any way; or advocates, promotes or assists any unlawful act such as (by way of example only) copyright infringement or computer misuse."
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/btn_terms_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reg_ffbf4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

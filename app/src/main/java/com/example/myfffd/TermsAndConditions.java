@@ -2,6 +2,7 @@ package com.example.myfffd;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +15,11 @@ public class TermsAndConditions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_terms_and_conditions);
 
-        button = findViewById(R.id.btn_tac_back);
+        button = findViewById(R.id.btn_terms_back);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                startActivity(new Intent(TermsAndConditions.this, Login.class));
             }
         });
     }
