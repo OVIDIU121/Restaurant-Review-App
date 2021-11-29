@@ -20,6 +20,17 @@ public class Restaurant implements Parcelable {
     public Restaurant() {
     }
 
+    /**
+     * @param name
+     * @param city
+     * @param street
+     * @param tel
+     * @param postcode
+     * @param profile_picture
+     * @param description
+     * @param rating
+     * @param review
+     */
     public Restaurant(String name, String city, String street, String tel, String postcode, String profile_picture, String description, float rating, Map<String, String> review) {
         this.name = name;
         this.city = city;
@@ -32,6 +43,9 @@ public class Restaurant implements Parcelable {
         this.review = review;
     }
 
+    /**
+     * @param in
+     */
     protected Restaurant(Parcel in) {
         name = in.readString();
         city = in.readString();
@@ -43,6 +57,10 @@ public class Restaurant implements Parcelable {
         rating = in.readFloat();
     }
 
+    /**
+     * @param dest
+     * @param flags
+     */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
@@ -61,11 +79,19 @@ public class Restaurant implements Parcelable {
     }
 
     public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
+        /**
+         * @param in
+         * @return
+         */
         @Override
         public Restaurant createFromParcel(Parcel in) {
             return new Restaurant(in);
         }
 
+        /**
+         * @param size 
+         * @return
+         */
         @Override
         public Restaurant[] newArray(int size) {
             return new Restaurant[size];

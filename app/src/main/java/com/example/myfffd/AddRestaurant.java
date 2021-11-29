@@ -83,6 +83,9 @@ public class AddRestaurant extends AppCompatActivity {
                     dbref.addListenerForSingleValueEvent(new ValueEventListener() {
                         private Map <String,String> test = null;
 
+                        /**
+                         * @param snapshot
+                         */
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()){
