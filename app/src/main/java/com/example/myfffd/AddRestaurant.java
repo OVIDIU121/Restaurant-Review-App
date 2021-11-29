@@ -17,11 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myfffd.models.Restaurant;
-import com.example.myfffd.models.User;
-import com.example.myfffd.utility.AuthenticationUtility;
-import com.example.myfffd.utility.DateTime;
-import com.example.myfffd.utility.Session;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;

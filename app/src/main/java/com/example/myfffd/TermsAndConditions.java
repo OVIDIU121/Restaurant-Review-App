@@ -19,7 +19,7 @@ public class TermsAndConditions extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TermsAndConditions.this, Login.class));
+                startActivity(new Intent(TermsAndConditions.this, Register.class));
             }
         });
     }

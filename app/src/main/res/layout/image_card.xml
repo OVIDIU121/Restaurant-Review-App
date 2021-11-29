@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/eatery_card_image"
+            android:id="@+id/image_template_menu"
             android:layout_width="269dp"
             android:layout_height="121dp"
             android:layout_marginTop="1dp"
