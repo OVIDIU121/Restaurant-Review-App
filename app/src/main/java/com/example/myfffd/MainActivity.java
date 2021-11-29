@@ -57,5 +57,14 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        ImageView img_main_streetfood;
+        img_main_streetfood = findViewById(R.id.img_main_streetfood);
+        img_main_streetfood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, StreetFoodActivity.class));
+            }
+        });
+
     }
 }

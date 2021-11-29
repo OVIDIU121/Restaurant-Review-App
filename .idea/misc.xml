@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1359375" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1359375" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/drawable/side_nav_bar.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/drawable/test1.xml" value="0.2703125" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout-v26/activity_add_restaurant.xml" value="0.1921875" />
@@ -13,6 +15,7 @@
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout-w936dp/activity_login.xml" value="0.190625" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/Login.xml" value="0.21145833333333333" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_add_restaurant.xml" value="0.2" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_add_street_food.xml" value="0.190625" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.264" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_book_restaurant.xml" value="0.2" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_dashboard.xml" value="0.264" />
@@ -23,7 +26,9 @@
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_read_rest_reviews.xml" value="0.2" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_restaurant.xml" value="0.2" />
-        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_restaurant_details.xml" value="0.264" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_restaurant_details.xml" value="0.2" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_street_food.xml" value="0.190625" />
+        <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_street_food_details.xml" value="0.2" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.152" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_update_userinfo.xml" value="0.2" />
         <entry key="..\:/Users/ovidiu/AndroidStudioProjects/MyFFFD/app/src/main/res/layout/activity_welcome.xml" value="0.2" />

@@ -85,23 +85,36 @@ public class AddRestaurant extends AppCompatActivity {
 
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot dss: snapshot.getChildren()) {
-                                Restaurant current_restaurant = dss.getValue(Restaurant.class);
-                                String current_rest_id = current_restaurant.getName() + "-" + current_restaurant.getPostcode();
-                                if(!rest_id.equals(current_rest_id)){
-                                    String url = "https://firebasestorage.googleapis.com/v0/b/mobileappdevelopment-15143.appspot.com/o/restaurant_photos%2Frestaurant_default.png?alt=media&token=23bf735f-c866-4309-9655-6793689fab74";
-                                    Restaurant restaurant = new Restaurant (et_rest_name.getText().toString(),et_rest_city.getText().toString(),
-                                            et_rest_street.getText().toString(),et_rest_tel.getText().toString(),et_rest_postcode.getText().toString(),
-                                            url,et_rest_desc.getText().toString(),0, test); // create restaurant object
-                                    dbref.child(et_rest_name.getText().toString()+ "-" + et_rest_postcode.getText().toString()).setValue(restaurant);
-                                    if(check[0] == true){
-                                        uploadPic(rest_id); // try to upload pic to firebase storage
+                            if (snapshot.exists()){
+                                for (DataSnapshot dss: snapshot.getChildren()) {
+                                    Restaurant current_restaurant = dss.getValue(Restaurant.class);
+                                    String current_rest_id = current_restaurant.getName() + "-" + current_restaurant.getPostcode();
+                                    if(!rest_id.equals(current_rest_id)){
+                                        String url = "https://firebasestorage.googleapis.com/v0/b/mobileappdevelopment-15143.appspot.com/o/restaurant_photos%2Frestaurant_default.png?alt=media&token=23bf735f-c866-4309-9655-6793689fab74";
+                                        Restaurant restaurant = new Restaurant (et_rest_name.getText().toString(),et_rest_city.getText().toString(),
+                                                et_rest_street.getText().toString(),et_rest_tel.getText().toString(),et_rest_postcode.getText().toString(),
+                                                url,et_rest_desc.getText().toString(),0, test); // create restaurant object
+                                        dbref.child(et_rest_name.getText().toString()+ "-" + et_rest_postcode.getText().toString()).setValue(restaurant);
+                                        if(check[0] == true){
+                                            uploadPic(rest_id); // try to upload pic to firebase storage
+                                        }
+                                        Toast.makeText(AddRestaurant.this,"Restaurant successfully added to app !" ,Toast.LENGTH_SHORT).show();
                                     }
-                                    Toast.makeText(AddRestaurant.this,"Restaurant successfully added to app !" ,Toast.LENGTH_SHORT).show();
+                                    else {
+                                        Toast.makeText(AddRestaurant.this,"Current restaurant is already registered !",Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                                else {
-                                    Toast.makeText(AddRestaurant.this,"Current restaurant is already registered !",Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                String url = "https://firebasestorage.googleapis.com/v0/b/mobileappdevelopment-15143.appspot.com/o/restaurant_photos%2Frestaurant_default.png?alt=media&token=23bf735f-c866-4309-9655-6793689fab74";
+                                Restaurant restaurant = new Restaurant (et_rest_name.getText().toString(),et_rest_city.getText().toString(),
+                                        et_rest_street.getText().toString(),et_rest_tel.getText().toString(),et_rest_postcode.getText().toString(),
+                                        url,et_rest_desc.getText().toString(),0, test); // create restaurant object
+                                dbref.child(et_rest_name.getText().toString()+ "-" + et_rest_postcode.getText().toString()).setValue(restaurant);
+                                if(check[0] == true){
+                                    uploadPic(rest_id); // try to upload pic to firebase storage
                                 }
+                                Toast.makeText(AddRestaurant.this,"Restaurant successfully added to app !" ,Toast.LENGTH_SHORT).show();
                             }
                         }
                         @Override

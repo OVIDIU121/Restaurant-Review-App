@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFFFD">
         <activity
+            android:name=".StreetFoodDetails"
+            android:exported="false" />
+        <activity
+            android:name=".AddStreetFood"
+            android:exported="false" />
+        <activity
+            android:name=".StreetFoodActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReadRestReviews"
             android:exported="false" />
         <activity

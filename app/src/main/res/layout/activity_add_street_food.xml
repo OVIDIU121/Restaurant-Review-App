@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroun"
+    tools:context=".AddStreetFood">
+
+    <TextView
+        android:id="@+id/tv_reg_ffbf9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="72dp"
+        android:fontFamily="serif"
+        android:text="For foodies by foodies"
+        android:textColor="@color/logo_color"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView92"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="82dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/et_stall_desc"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:ems="10"
+                android:hint="Street Food Stall Description"
+                android:inputType="textPersonName"
+                android:maxHeight="300dp"
+                android:minHeight="48dp"
+                android:textColor="#000000"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/iv_stall_picture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox_stall" />
+
+            <Button
+                android:id="@+id/btn_stall_add"
+                android:layout_width="300dp"
+                android:layout_height="58dp"
+                android:backgroundTint="@color/button_background_tint"
+                android:text="Add Street Food Stall"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView118"
+                app:strokeColor="#fff" />
+
+            <EditText
+                android:id="@+id/et_stall_name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Street Food Stall Name"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColor="#000000"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/et_stall_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_stall_location"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Street Food Stall Location"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColor="#000000"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/checkBox_stall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_stall_name" />
+
+            <TextView
+                android:id="@+id/textView118"
+                android:layout_width="300dp"
+                android:layout_height="39dp"
+                android:text="Tap the image above to upload a picture of the Street Food Stall."
+                android:textAlignment="center"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/btn_stall_add"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_stall_picture" />
+
+            <ImageView
+                android:id="@+id/iv_stall_picture"
+                android:layout_width="300dp"
+                android:layout_height="128dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView118"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_stall_desc"
+                app:srcCompat="@drawable/streetfood_default" />
+
+            <CheckBox
+                android:id="@+id/checkBox_stall"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:gravity="center_vertical"
+                android:text="Vegetarian"
+                app:layout_constraintBottom_toTopOf="@+id/et_stall_desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_stall_location" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
