@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFFFD">
         <activity
+            android:name=".PostAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReadStallReviews"
             android:exported="false" />
         <activity

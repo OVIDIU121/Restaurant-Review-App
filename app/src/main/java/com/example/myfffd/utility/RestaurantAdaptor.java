@@ -13,11 +13,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class EateryAdaptor extends RecyclerView.Adapter<EateryAdaptor.EateryHolder> {
+public class RestaurantAdaptor extends RecyclerView.Adapter<RestaurantAdaptor.EateryHolder> {
     List<Restaurant> restaurantList;
 
     EateryHolder.OnEateryClickListener listener;
-    public EateryAdaptor(List<Restaurant> restaurantList, EateryHolder.OnEateryClickListener _listener) {
+    public RestaurantAdaptor(List<Restaurant> restaurantList, EateryHolder.OnEateryClickListener _listener) {
         this.restaurantList = restaurantList;
         listener= _listener;
     }

@@ -65,6 +65,13 @@ public class MainActivity extends AppCompatActivity{
                 startActivity(new Intent(MainActivity.this, StreetFoodActivity.class));
             }
         });
-
+        ImageView img_main_forum;
+        img_main_forum = findViewById(R.id.img_main_forum);
+        img_main_forum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PostListActivity.class));
+            }
+        });
     }
 }

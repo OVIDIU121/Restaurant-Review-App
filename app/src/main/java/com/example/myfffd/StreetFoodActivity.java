@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.example.myfffd.models.StreetFood;
-import com.example.myfffd.utility.EateryAdaptor;
-import com.example.myfffd.utility.Session;
 import com.example.myfffd.utility.StreetFoodAdaptor;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

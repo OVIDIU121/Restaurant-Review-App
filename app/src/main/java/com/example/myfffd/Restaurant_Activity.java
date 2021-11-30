@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myfffd.models.Restaurant;
-import com.example.myfffd.utility.EateryAdaptor;
+import com.example.myfffd.utility.RestaurantAdaptor;
 import com.example.myfffd.utility.Session;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,10 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant_Activity extends AppCompatActivity implements EateryAdaptor.EateryHolder.OnEateryClickListener {
+public class Restaurant_Activity extends AppCompatActivity implements RestaurantAdaptor.EateryHolder.OnEateryClickListener {
 
     RecyclerView rv;
-    EateryAdaptor adaptor;
+    RestaurantAdaptor adaptor;
     List<Restaurant> restaurantList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class Restaurant_Activity extends AppCompatActivity implements EateryAdap
                 {
                     restaurantList.add(dss.getValue(Restaurant.class));
                 }
-                adaptor = new EateryAdaptor(restaurantList, Restaurant_Activity.this);
+                adaptor = new RestaurantAdaptor(restaurantList, Restaurant_Activity.this);
                 rv.setAdapter(adaptor);
             }
 
