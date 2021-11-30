@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myfffd.R;
 import com.example.myfffd.models.Post;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -44,12 +45,10 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder>  {
         holder.title.setText(post.getTitle());
         holder.desc.setText(post.getDesc());
         java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance();
-        String formattedDate = dateFormat.format(new Date(Long.valueOf(post.getTimestamp())).getTime());
-        holder.timestamp.setText(formattedDate);
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        Date formattedDate = new Date((Long.valueOf(post.getTimestamp())));
+        holder.timestamp.setText(formattedDate.toString());
         holder.alias.setText(post.getAlias());
-        imageUrl = post.getImage();
-
-
     }
 
     @Override
