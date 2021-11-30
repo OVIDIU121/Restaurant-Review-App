@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.myfffd.models.Restaurant;
 import com.example.myfffd.models.User;
+import com.example.myfffd.utility.Session;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

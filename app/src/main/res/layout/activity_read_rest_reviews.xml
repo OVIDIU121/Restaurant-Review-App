@@ -43,22 +43,6 @@
             android:layout_height="wrap_content">
 
 
-            <Button
-                android:id="@+id/btn_review_read_previous"
-                android:layout_width="150dp"
-                android:layout_height="58dp"
-                android:backgroundTint="@color/button_background_tint"
-                android:text="Previous"
-                android:textAllCaps="false"
-                android:textColor="@color/button_text"
-                android:textSize="20sp"
-                app:cornerRadius="20dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_review_read_next"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:strokeColor="#fff"
-                tools:layout_editor_absoluteY="492dp" />
-
             <TextView
                 android:id="@+id/tx_review_read_name"
                 android:layout_width="300dp"
@@ -69,10 +53,11 @@
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/rtb_review_read_rating"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="17dp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/btn_review_read_next"
@@ -84,11 +69,12 @@
                 android:textColor="@color/button_text"
                 android:textSize="20sp"
                 app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_review_read_previous"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/btn_review_read_previous"
-                app:strokeColor="#fff"
-                tools:layout_editor_absoluteY="492dp" />
+                app:layout_constraintTop_toTopOf="@+id/btn_review_read_previous"
+                app:strokeColor="#fff" />
 
             <RatingBar
                 android:id="@+id/rtb_review_read_rating"
@@ -102,11 +88,12 @@
                 android:numStars="5"
                 android:rating="2.5"
                 android:stepSize="0.1"
+                app:layout_constraintBottom_toTopOf="@+id/tx_rest_read_review_alias"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="SpeakableTextPresentCheck"
-                tools:layout_editor_absoluteY="90dp" />
+                app:layout_constraintTop_toBottomOf="@+id/tx_review_read_name"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/tx_rest_read_review"
@@ -118,10 +105,11 @@
                 android:textColor="#000000"
                 android:textSize="16sp"
                 android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/btn_review_read_next"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="258dp" />
+                app:layout_constraintTop_toBottomOf="@+id/tx_rest_read_review_alias" />
 
             <TextView
                 android:id="@+id/tx_rest_read_review_alias"
@@ -130,26 +118,28 @@
                 android:hint="No reviews for this restaurant"
                 android:textColor="#000000"
                 android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/tx_rest_read_review"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="191dp" />
+                app:layout_constraintTop_toBottomOf="@+id/rtb_review_read_rating" />
 
             <Button
-                android:id="@+id/btn_rest_review_delete"
-                android:layout_width="300dp"
+                android:id="@+id/btn_review_read_previous"
+                android:layout_width="150dp"
                 android:layout_height="58dp"
+                android:layout_marginTop="43dp"
                 android:backgroundTint="@color/button_background_tint"
-                android:text="Delete review"
+                android:text="Previous"
                 android:textAllCaps="false"
                 android:textColor="@color/button_text"
                 android:textSize="20sp"
                 app:cornerRadius="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_review_read_next"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:strokeColor="#fff"
-                tools:layout_editor_absoluteY="566dp" />
+                app:layout_constraintTop_toBottomOf="@+id/tx_rest_read_review"
+                app:strokeColor="#fff" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

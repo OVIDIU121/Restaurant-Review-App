@@ -41,11 +41,11 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btn_profile_back"
+                android:id="@+id/btn_profile_delete"
                 android:layout_width="300dp"
-                android:layout_height="58dp"
+                android:layout_height="48dp"
                 android:backgroundTint="@color/button_background_tint"
-                android:text="Back"
+                android:text="Delete Account"
                 android:textAllCaps="false"
                 android:textColor="@color/button_text"
                 android:textSize="20sp"
@@ -58,11 +58,11 @@
                 app:strokeColor="#fff" />
 
             <Button
-                android:id="@+id/btn_profile_add_restaurant"
+                android:id="@+id/btn_profile_seeall_reviews"
                 android:layout_width="300dp"
                 android:layout_height="48dp"
                 android:backgroundTint="@color/button_background_tint"
-                android:text="Add Restaurant"
+                android:text="See All Reviews"
                 android:textAllCaps="false"
                 android:textColor="@color/button_text"
                 android:textSize="16sp"
@@ -86,7 +86,7 @@
                 android:textSize="16sp"
                 android:visibility="invisible"
                 app:cornerRadius="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/btn_profile_add_restaurant"
+                app:layout_constraintBottom_toTopOf="@+id/btn_profile_seeall_reviews"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -117,19 +117,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_profile_add_restaurant">
+                app:layout_constraintTop_toBottomOf="@+id/btn_profile_seeall_reviews">
 
                 <TableRow
                     android:id="@+id/pf_fn"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="15dp">
 
                     <TextView
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:text="First Name"
+                        android:text="First Name:"
                         android:textColor="#000000"
                         android:textSize="17sp" />
 
@@ -148,14 +148,14 @@
                     android:id="@+id/pf_sn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="15dp">
 
                     <TextView
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:text="Last Name"
+                        android:text="Last Name:"
                         android:textColor="#000000"
                         android:textSize="17sp" />
 
@@ -173,14 +173,14 @@
                     android:id="@+id/pf_alias"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="15dp">
 
                     <TextView
                         android:id="@+id/textView7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:text="Display Name"
+                        android:text="Alias:"
                         android:textColor="#000000"
                         android:textSize="17sp" />
 
@@ -198,14 +198,14 @@
                     android:id="@+id/pf_em"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="15dp">
 
                     <TextView
                         android:id="@+id/textView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:text="Email"
+                        android:text="Email:"
                         android:textColor="#000000"
                         android:textSize="17sp" />
 
@@ -223,14 +223,14 @@
                     android:id="@+id/pf_type"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="15dp">
 
                     <TextView
                         android:id="@+id/textView9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:text="User Type"
+                        android:text="User Type:"
                         android:textColor="#000000"
                         android:textSize="17sp" />
 
@@ -282,7 +282,7 @@
                 android:textColor="#4E4E4E"
                 android:textSize="12sp"
                 android:textStyle="italic"
-                app:layout_constraintBottom_toTopOf="@+id/btn_profile_back"
+                app:layout_constraintBottom_toTopOf="@+id/btn_profile_delete"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
