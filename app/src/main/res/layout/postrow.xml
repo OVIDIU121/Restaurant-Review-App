@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="368dp"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    app:cardCornerRadius="10dp">
 
 
     <LinearLayout
@@ -26,7 +27,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Post Title"
-            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -45,7 +47,7 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:text="TextView"
-            android:textStyle="italic" />
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/timestampList"

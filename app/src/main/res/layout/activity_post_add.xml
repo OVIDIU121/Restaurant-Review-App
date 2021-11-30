@@ -36,7 +36,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dash_fffd53" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_post_add" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btn_forum_post_submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postTitleEt">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/descriptionEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Write your post here. "
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_forum_post_submit"
@@ -55,26 +77,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
         app:strokeColor="#fff" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout5"
+    <ImageView
+        android:id="@+id/iv_post_add"
         android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_forum_post_submit"
+        android:layout_height="145dp"
+        android:layout_marginTop="58dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postTitleEt">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/descriptionEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
-            android:hint="Write your post here. "
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="italic" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/tv_dash_fffd53"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

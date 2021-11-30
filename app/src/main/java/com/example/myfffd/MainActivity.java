@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         img_main_forum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PostListActivity.class));
+                startActivity(new Intent(MainActivity.this, ForumMain.class));
             }
         });
     }

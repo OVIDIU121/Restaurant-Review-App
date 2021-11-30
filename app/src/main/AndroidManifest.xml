@@ -64,7 +64,7 @@
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".AdminDashboard"
+            android:name=".ForumMain"
             android:exported="false" />
         <activity
             android:name=".TermsAndConditions"

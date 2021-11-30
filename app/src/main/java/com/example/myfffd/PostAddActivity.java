@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +24,7 @@ import java.util.Map;
  * The type Post add activity.
  */
 public class PostAddActivity extends AppCompatActivity {
+    private ImageView iv_post_add;
     private EditText mPostTitle;
     private EditText mPostDesc;
     private Button mSubmitButton;
@@ -30,7 +32,6 @@ public class PostAddActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private ProgressDialog mProgress;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +39,21 @@ public class PostAddActivity extends AppCompatActivity {
         mProgress = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        mPostDatabase = FirebaseDatabase.getInstance().getReference().child("_forum_");
+        mPostDatabase = FirebaseDatabase.getInstance().getReference().child("_forum_").child(Session.ActiveSession.forum_choice);
         mPostTitle = findViewById(R.id.postTitleEt);
         mPostDesc = findViewById(R.id.descriptionEt);
         mSubmitButton = findViewById(R.id.btn_forum_post_submit);
+        iv_post_add = findViewById(R.id.iv_post_add);
+        if(Session.ActiveSession.forum_choice.equals("_offtopic_")){
+            iv_post_add.setImageResource(R.drawable.oftopic);
+        }
+        if(Session.ActiveSession.forum_choice.equals("_suggestions_")){
+            iv_post_add.setImageResource(R.drawable.suggestions);
+        }
+        if(Session.ActiveSession.forum_choice.equals("_deals_")){
+            iv_post_add.setImageResource(R.drawable.hotdeals);
+        }
+
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

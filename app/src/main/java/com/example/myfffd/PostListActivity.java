@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfffd.models.Post;
+import com.example.myfffd.models.Restaurant;
 import com.example.myfffd.utility.PostAdaptor;
+import com.example.myfffd.utility.Session;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -42,9 +44,8 @@ public class PostListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_postlist_main);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-
         mDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mDatabase.getReference().child("_forum_");
+        mDatabaseReference = mDatabase.getReference().child("_forum_").child(Session.ActiveSession.forum_choice);
         mDatabaseReference.keepSynced(true);
         forumList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerViewForum);
@@ -55,7 +56,9 @@ public class PostListActivity extends AppCompatActivity {
         btn_forum_main_addPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PostListActivity.this, PostAddActivity.class));
+                Intent i = new Intent(PostListActivity.this, PostAddActivity.class);
+                startActivity(i);
+                finish();
             }
         });
 
