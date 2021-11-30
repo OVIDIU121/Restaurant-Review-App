@@ -1,7 +1,5 @@
 package com.example.myfffd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,15 +9,20 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myfffd.models.Restaurant;
 
+/**
+ * The type Book restaurant.
+ */
 public class BookRestaurant extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_restaurant);
-        Restaurant restaurant =getIntent().getParcelableExtra("OBJECT");
+        Restaurant restaurant = getIntent().getParcelableExtra("OBJECT");
         TextView tx_book_name;
         Button btn_book_reserve;
         DatePicker dt_book_picker;
@@ -36,7 +39,7 @@ public class BookRestaurant extends AppCompatActivity {
                 String day = "" + dt_book_picker.getDayOfMonth();
                 String month = "" + (dt_book_picker.getMonth() + 1);
                 String year = "" + dt_book_picker.getYear();
-                String url = "https://www.opentable.com/s?dateTime="+year+"-"+month+"-"+day+"T19%3A00%3A00&covers=2&metroId=72&regionIds=5316&pinnedRids%5B0%5D=87967&enableSimpleCuisines=true&includeTicketedAvailability=true&pageType=0";
+                String url = "https://www.opentable.com/s?dateTime=" + year + "-" + month + "-" + day + "T19%3A00%3A00&covers=2&metroId=72&regionIds=5316&pinnedRids%5B0%5D=87967&enableSimpleCuisines=true&includeTicketedAvailability=true&pageType=0";
                 Toast.makeText(getApplicationContext(), "Loading your reservation !", Toast.LENGTH_LONG).show();
                 System.out.println(url);
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));

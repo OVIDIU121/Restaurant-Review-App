@@ -1,9 +1,12 @@
 package com.example.myfffd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+/**
+ * The type Admin dashboard.
+ */
 public class AdminDashboard extends AppCompatActivity {
 
     @Override

@@ -7,6 +7,17 @@ import java.util.Map;
 
 public class StreetFood implements Parcelable {
 
+    public static final Parcelable.Creator<StreetFood> CREATOR = new Parcelable.Creator<StreetFood>() {
+        @Override
+        public StreetFood createFromParcel(Parcel in) {
+            return new StreetFood(in);
+        }
+
+        @Override
+        public StreetFood[] newArray(int size) {
+            return new StreetFood[size];
+        }
+    };
     private String name;
     private String location;
     private String profile_picture;
@@ -14,8 +25,10 @@ public class StreetFood implements Parcelable {
     private boolean vegetarian;
     private float rating;
     private Map<String, String> review;
+
     public StreetFood() {
     }
+
 
     public StreetFood(String name, String location, String profile_picture, String description, boolean vegetarian, float rating, Map<String, String> review) {
         this.name = name;
@@ -26,7 +39,6 @@ public class StreetFood implements Parcelable {
         this.rating = rating;
         this.review = review;
     }
-
 
     protected StreetFood(Parcel in) {
         name = in.readString();
@@ -51,18 +63,6 @@ public class StreetFood implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
-    public static final Creator<StreetFood> CREATOR = new Creator<StreetFood>() {
-        @Override
-        public StreetFood createFromParcel(Parcel in) {
-            return new StreetFood(in);
-        }
-
-        @Override
-        public StreetFood[] newArray(int size) {
-            return new StreetFood[size];
-        }
-    };
 
     public String getName() {
         return name;

@@ -7,6 +7,25 @@ import java.util.Map;
 
 public class Restaurant implements Parcelable {
 
+    public static final Parcelable.Creator<Restaurant> CREATOR = new Parcelable.Creator<Restaurant>() {
+        /**
+         * @param in
+         * @return
+         */
+        @Override
+        public Restaurant createFromParcel(Parcel in) {
+            return new Restaurant(in);
+        }
+
+        /**
+         * @param size
+         * @return
+         */
+        @Override
+        public Restaurant[] newArray(int size) {
+            return new Restaurant[size];
+        }
+    };
     private String name;
     private String city;
     private String street;
@@ -77,26 +96,6 @@ public class Restaurant implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
-    public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
-        /**
-         * @param in
-         * @return
-         */
-        @Override
-        public Restaurant createFromParcel(Parcel in) {
-            return new Restaurant(in);
-        }
-
-        /**
-         * @param size 
-         * @return
-         */
-        @Override
-        public Restaurant[] newArray(int size) {
-            return new Restaurant[size];
-        }
-    };
 
     public String getName() {
         return name;

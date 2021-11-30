@@ -5,8 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.myfffd.R;
 import com.example.myfffd.models.Restaurant;
 import com.squareup.picasso.Picasso;
@@ -17,20 +19,20 @@ public class RestaurantAdaptor extends RecyclerView.Adapter<RestaurantAdaptor.Ea
     List<Restaurant> restaurantList;
 
     EateryHolder.OnEateryClickListener listener;
+
     public RestaurantAdaptor(List<Restaurant> restaurantList, EateryHolder.OnEateryClickListener _listener) {
         this.restaurantList = restaurantList;
-        listener= _listener;
+        listener = _listener;
     }
 
     @NonNull
     @Override
     public EateryHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v;
-        if(true) {
+        if (true) {
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.eaterycard, parent, false);// create view object and inflate it
 
-        }
-        else {
+        } else {
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.eaterycard, parent, false);
         }
         return new EateryHolder(v, listener);
@@ -39,7 +41,7 @@ public class RestaurantAdaptor extends RecyclerView.Adapter<RestaurantAdaptor.Ea
     @Override
     public void onBindViewHolder(@NonNull EateryHolder holder, int position) {
         Picasso.get().load(restaurantList.get(position).getProfile_picture()).fit().into(holder.iv);
-        holder.tv.setText(restaurantList.get(position).getName() +", " + restaurantList.get(position).getCity());
+        holder.tv.setText(restaurantList.get(position).getName() + ", " + restaurantList.get(position).getCity());
         holder.tv_description.setText(restaurantList.get(position).getDescription());
     }
 
@@ -49,11 +51,11 @@ public class RestaurantAdaptor extends RecyclerView.Adapter<RestaurantAdaptor.Ea
         return restaurantList.size();
     }
 
-    public static class EateryHolder extends RecyclerView.ViewHolder implements View.OnClickListener
-    {
+    public static class EateryHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView iv;
         TextView tv, tv_description;
         OnEateryClickListener listener;
+
         public EateryHolder(@NonNull View itemView, OnEateryClickListener _listener) {
             super(itemView);
             iv = itemView.findViewById(R.id.eatery_card_image);
@@ -68,9 +70,8 @@ public class RestaurantAdaptor extends RecyclerView.Adapter<RestaurantAdaptor.Ea
             listener.onEateryClick(getAdapterPosition());// get index of the current clicked card
         }
 
-        public interface OnEateryClickListener
-        {
-            public void onEateryClick(int index);//abstract method
+        public interface OnEateryClickListener {
+            void onEateryClick(int index);//abstract method
         }
 
     }

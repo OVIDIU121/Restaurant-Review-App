@@ -17,12 +17,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder>  {
+public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
 
-    private List<Post> postList;
+    private final List<Post> postList;
+    RestaurantAdaptor.EateryHolder.OnEateryClickListener listener;
     private Context context;
 
-    RestaurantAdaptor.EateryHolder.OnEateryClickListener listener;
     public PostAdaptor(Context context, List<Post> postList) {
         this.context = context;
         this.postList = postList;
@@ -56,7 +56,7 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder>  {
         return postList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView title;
         public TextView desc;
@@ -69,11 +69,11 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder>  {
             super(view);
 
             context = ctx;
-            alias = (TextView) view.findViewById(R.id.userAliasPost);
-            title = (TextView) view.findViewById(R.id.postTitleList);
-            desc = (TextView) view.findViewById(R.id.postTextList);
-            image = (ImageView) view.findViewById(R.id.postImageList);
-            timestamp = (TextView) view.findViewById(R.id.timestampList);
+            alias = view.findViewById(R.id.userAliasPost);
+            title = view.findViewById(R.id.postTitleList);
+            desc = view.findViewById(R.id.postTextList);
+            image = view.findViewById(R.id.postImageList);
+            timestamp = view.findViewById(R.id.timestampList);
             userid = null;
 
             view.setOnClickListener(new View.OnClickListener() {

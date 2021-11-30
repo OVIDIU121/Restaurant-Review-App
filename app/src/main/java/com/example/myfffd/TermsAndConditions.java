@@ -1,14 +1,20 @@
 package com.example.myfffd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+/**
+ * The type Terms and conditions.
+ */
 public class TermsAndConditions extends AppCompatActivity {
-        Button button;
+    /**
+     * The Button.
+     */
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

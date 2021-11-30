@@ -1,16 +1,14 @@
 package com.example.myfffd;
 
-import androidx.annotation.RequiresPermission;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myfffd.models.Restaurant;
 import com.example.myfffd.utility.Session;
@@ -18,16 +16,23 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Locale;
 
+/**
+ * The type Restaurant details.
+ */
 public class RestaurantDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_details);
-        TextView tx_rest_details_name,tx_rest_details_tel, tx_rest_details_desc;
+        TextView tx_rest_details_name;
+        final TextView tx_rest_details_tel;
+        TextView tx_rest_details_desc;
         ImageView iv_rest_details;
         RatingBar rtb_rest_details;
-        Button btn_rest_details_read,btn_rest_details_reserv, btn_rest_details_write;
+        Button btn_rest_details_read;
+        final Button btn_rest_details_reserv;
+        Button btn_rest_details_write;
 
         tx_rest_details_name = findViewById(R.id.tx_rest_details_name);
         tx_rest_details_tel = findViewById(R.id.tx_rest_details_tel);
@@ -38,7 +43,7 @@ public class RestaurantDetails extends AppCompatActivity {
         btn_rest_details_reserv = findViewById(R.id.btn_rest_details_reserv);
         btn_rest_details_write = findViewById(R.id.btn_rest_details_write);
         //receive the parcelable info
-        Restaurant restaurant =getIntent().getParcelableExtra("OBJECT");
+        Restaurant restaurant = getIntent().getParcelableExtra("OBJECT");
         tx_rest_details_name.setText(restaurant.getName() + ", " + restaurant.getCity() + ", " + restaurant.getStreet() + ", " + restaurant.getPostcode());
         tx_rest_details_tel.setText(restaurant.getTel());
         tx_rest_details_desc.setText(restaurant.getDescription());
@@ -46,12 +51,9 @@ public class RestaurantDetails extends AppCompatActivity {
         rtb_rest_details.setRating(restaurant.getRating());
         rtb_rest_details.setIsIndicator(true);
         if (Session.ActiveSession.user.getType().toLowerCase(Locale.ROOT).compareTo("critic") == 0
-                || Session.ActiveSession.user.getType().toLowerCase(Locale.ROOT).compareTo("admin") == 0)
-        {
+                || Session.ActiveSession.user.getType().toLowerCase(Locale.ROOT).compareTo("admin") == 0) {
             btn_rest_details_write.setVisibility(View.VISIBLE);
-        }
-        else
-        {
+        } else {
             btn_rest_details_write.setVisibility(View.INVISIBLE);
         }
 

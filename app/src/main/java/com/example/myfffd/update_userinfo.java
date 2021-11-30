@@ -1,7 +1,5 @@
 package com.example.myfffd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,27 +8,31 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myfffd.utility.Session;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * The type Update userinfo.
+ */
 public class update_userinfo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_userinfo);
-        if (Session.ActiveSession.checkLogin())
-        {
+        if (Session.ActiveSession.checkLogin()) {
             update(Session.ActiveSession.cookie);
             Session.ActiveSession.clearOption();
-        }
-        else {
-            startActivity(new Intent(update_userinfo.this, Profile.class));
+        } else {
+            startActivity(new Intent(this, Profile.class));
             finish();
         }
     }
-    private void update(String i){
+
+    private void update(String i) {
         DatabaseReference updateData = FirebaseDatabase.getInstance().getReference("_user_").child(Session.ActiveSession.user.getAuth_id());
         TextView tv_update_currentinfo;
         EditText tx_update_info;
@@ -45,7 +47,7 @@ public class update_userinfo extends AppCompatActivity {
             public void onClick(View v) {
                 String value = tx_update_info.getText().toString();
                 updateData.child(i).setValue(value);
-                switch (i){
+                switch (i) {
                     case "fn":
                         Session.ActiveSession.user.setFn(value);
                         break;
@@ -57,8 +59,8 @@ public class update_userinfo extends AppCompatActivity {
                         break;
                 }
 
-                Toast.makeText(update_userinfo.this,"Details updated successfully",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(update_userinfo.this,Profile.class));
+                Toast.makeText(update_userinfo.this, "Details updated successfully", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(update_userinfo.this, Profile.class));
                 finish();
             }
         });

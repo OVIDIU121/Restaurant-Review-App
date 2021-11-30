@@ -1,15 +1,13 @@
 package com.example.myfffd;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.myfffd.models.Post;
 import com.example.myfffd.utility.PostAdaptor;
@@ -25,6 +23,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The type Post list activity.
+ */
 public class PostListActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabaseReference;
@@ -46,7 +47,7 @@ public class PostListActivity extends AppCompatActivity {
         mDatabaseReference = mDatabase.getReference().child("_forum_");
         mDatabaseReference.keepSynced(true);
         forumList = new ArrayList<>();
-        recyclerView =(RecyclerView) findViewById(R.id.recyclerViewForum);
+        recyclerView = findViewById(R.id.recyclerViewForum);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Button btn_forum_main_addPost;
@@ -54,7 +55,7 @@ public class PostListActivity extends AppCompatActivity {
         btn_forum_main_addPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PostListActivity.this,PostAddActivity.class));
+                startActivity(new Intent(PostListActivity.this, PostAddActivity.class));
             }
         });
 
@@ -71,7 +72,7 @@ public class PostListActivity extends AppCompatActivity {
                 Post post = dataSnapshot.getValue(Post.class);
                 forumList.add(post);
                 Collections.reverse(forumList);
-                postAdaptor = new PostAdaptor(PostListActivity.this,forumList);
+                postAdaptor = new PostAdaptor(PostListActivity.this, forumList);
                 recyclerView.setAdapter(postAdaptor);
                 postAdaptor.notifyDataSetChanged();
             }

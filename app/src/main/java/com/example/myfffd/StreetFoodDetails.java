@@ -1,7 +1,5 @@
 package com.example.myfffd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,21 +8,27 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myfffd.models.StreetFood;
 import com.squareup.picasso.Picasso;
 
-import java.util.Locale;
-
+/**
+ * The type Street food details.
+ */
 public class StreetFoodDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_street_food_details);
-        TextView tx_stall_details_name, tx_stall_details_desc;
+        TextView tx_stall_details_name;
+        TextView tx_stall_details_desc;
         ImageView iv_stall_details;
         RatingBar rtb_stall_details;
-        Button btn_stall_details_read, btn_stall_details_write;
+        Button btn_stall_details_read;
+        Button btn_stall_details_write;
         CheckBox checkbox_streetfoord_detail;
 
         tx_stall_details_name = findViewById(R.id.tx_stall_details_name);

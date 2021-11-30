@@ -1,7 +1,5 @@
 package com.example.myfffd;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +7,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myfffd.utility.Session;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity{
+/**
+ * The type Main activity.
+ */
+public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //
@@ -32,9 +35,7 @@ public class MainActivity extends AppCompatActivity{
                     Toast.makeText(MainActivity.this, "Logged out successfully !", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(MainActivity.this, Login.class));
                     finish(); // Destroy activity A and not exist in Back stack
-                }
-                catch (Exception exception)
-                {
+                } catch (Exception exception) {
                     Toast.makeText(MainActivity.this, exception.getMessage(), Toast.LENGTH_LONG).show(); // show error, to be removed
                 }
             }

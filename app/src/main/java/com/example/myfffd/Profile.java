@@ -37,15 +37,63 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 
+/**
+ * The type Profile.
+ */
 public class Profile extends AppCompatActivity {
-    TextView tv_profile_fn, tv_profile_sn, tv_profile_em, tv_profile_alias, tv_profile_type, tv_profile_change;
+    /**
+     * The Tv profile fn.
+     */
+    TextView tv_profile_fn, /**
+     * The Tv profile sn.
+     */
+    tv_profile_sn, /**
+     * The Tv profile em.
+     */
+    tv_profile_em, /**
+     * The Tv profile alias.
+     */
+    tv_profile_alias, /**
+     * The Tv profile type.
+     */
+    tv_profile_type, /**
+     * The Tv profile change.
+     */
+    tv_profile_change;
+    /**
+     * The Iv profile avatar.
+     */
     ImageView iv_profile_avatar;
-    Button btn_profile_delete, btn_profile_upload;
+    /**
+     * The Btn profile delete.
+     */
+    Button btn_profile_delete, /**
+     * The Btn profile upload.
+     */
+    btn_profile_upload;
+    /**
+     * The Sref.
+     */
     StorageReference sref;
+    /**
+     * The Path.
+     */
     Uri path;
+    /**
+     * The M auth.
+     */
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    /**
+     * The Dbref street food.
+     */
     DatabaseReference dbref_streetFood = FirebaseDatabase.getInstance().getReference("_streetFood_");
+    /**
+     * The Dbref rest.
+     */
     DatabaseReference dbref_rest = FirebaseDatabase.getInstance().getReference("_restaurants_");
+    /**
+     * The Update data.
+     */
     DatabaseReference updateData = FirebaseDatabase.getInstance().getReference("_user_").child(Session.ActiveSession.user.getAuth_id());
 
     @Override
@@ -242,6 +290,9 @@ public class Profile extends AppCompatActivity {
         }
     }
 
+    /**
+     * Update profile.
+     */
     public void updateProfile() {
         TableRow pf_fn;
         final TableRow pf_sn;
