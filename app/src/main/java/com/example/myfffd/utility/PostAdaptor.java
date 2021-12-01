@@ -1,6 +1,7 @@
 package com.example.myfffd.utility;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfffd.R;
 import com.example.myfffd.models.Post;
+import com.example.myfffd.models.Restaurant;
+import com.example.myfffd.models.User;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,7 +54,6 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostAdaptor.ViewHolder holder, int position) {
         Post post = this.postList.get(position);
-        String imageUrl = null;
         holder.title.setText(post.getTitle());
         holder.desc.setText(post.getDesc());
         java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance();
@@ -49,6 +61,22 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
         Date formattedDate = new Date((Long.valueOf(post.getTimestamp())));
         holder.timestamp.setText(formattedDate.toString());
         holder.alias.setText(post.getAlias());
+        FirebaseDatabase.getInstance().getReference("_user_").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dss: snapshot.getChildren()){
+                    User current_user = dss.getValue(User.class);
+                    if(post.getUserid().equals(current_user.getAuth_id())){
+                        Picasso.get().load(current_user.getProfile_pic_url()).fit().into(holder.iv_forum_avatar);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println(error);
+            }
+        });
     }
 
     @Override
@@ -63,6 +91,7 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
         public TextView timestamp;
         public ImageView image;
         public TextView alias;
+        public ImageView iv_forum_avatar;
         String userid;
 
         public ViewHolder(View view, Context ctx) {
@@ -74,6 +103,7 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
             desc = view.findViewById(R.id.postTextList);
             image = view.findViewById(R.id.postImageList);
             timestamp = view.findViewById(R.id.timestampList);
+            iv_forum_avatar = view.findViewById(R.id.iv_forum_avatar);
             userid = null;
 
             view.setOnClickListener(new View.OnClickListener() {

@@ -211,7 +211,7 @@ public class Profile extends AppCompatActivity {
         tv_profile_alias.setText(Session.ActiveSession.user.getAlias());
         tv_profile_type.setText(Session.ActiveSession.user.getType());
         btn_profile_upload = findViewById(R.id.btn_profile_upload);
-        iv_profile_avatar = findViewById(R.id.iv_profile_avatar);
+        iv_profile_avatar = findViewById(R.id.iv_forum_avatar);
         if (!Session.ActiveSession.user.getProfile_pic_url().isEmpty()) {
             String url2 = Session.ActiveSession.user.getProfile_pic_url();
             Picasso.get().load(url2).fit().into(iv_profile_avatar);
