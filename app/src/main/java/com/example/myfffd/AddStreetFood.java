@@ -34,7 +34,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Map;
 
-public class AddStreetFood extends AppCompatActivity {
+public class AddStreetFood extends NavigationMenuActivity {
     ImageView iv_stall_picture;
     Uri path;
     StorageReference sref = FirebaseStorage.getInstance().getReference("streetFood_photos");

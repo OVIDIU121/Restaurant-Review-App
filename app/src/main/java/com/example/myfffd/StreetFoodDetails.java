@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 /**
  * The type Street food details.
  */
-public class StreetFoodDetails extends AppCompatActivity {
+public class StreetFoodDetails extends NavigationMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

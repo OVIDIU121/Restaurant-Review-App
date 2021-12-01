@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * The type Update userinfo.
  */
-public class update_userinfo extends AppCompatActivity {
+public class update_userinfo extends NavigationMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -13,7 +13,7 @@ import com.example.myfffd.utility.Session;
 /**
  * The type Admin dashboard.
  */
-public class ForumMain extends AppCompatActivity {
+public class ForumMain extends NavigationMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

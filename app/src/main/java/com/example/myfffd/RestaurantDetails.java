@@ -19,7 +19,7 @@ import java.util.Locale;
 /**
  * The type Restaurant details.
  */
-public class RestaurantDetails extends AppCompatActivity {
+public class RestaurantDetails extends NavigationMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

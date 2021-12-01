@@ -8,34 +8,18 @@
     tools:context=".ForumMain">
 
     <TextView
-        android:id="@+id/tv_reg_ffbf5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="69dp"
-        android:fontFamily="serif"
-        android:text="For foodies by foodies "
-        android:textColor="@color/logo_color"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tv_adash_fffd4"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
         android:fontFamily="serif"
         android:text="Off-topics"
         android:textSize="20sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/cardView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_reg_ffbf5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_adash_profile"
@@ -45,6 +29,7 @@
         android:text="Fresh Suggestions"
         android:textSize="20sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/cardView13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +43,7 @@
         android:text="Deal Of The Week"
         android:textSize="20sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/cardView12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_adash_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,6 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_forum_main_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,6 +121,7 @@
         android:textColor="@color/button_text"
         android:textStyle="bold"
         app:cornerRadius="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,6 +134,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_adash_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

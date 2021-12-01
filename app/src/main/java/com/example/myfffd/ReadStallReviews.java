@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * The type Read stall reviews.
  */
-public class ReadStallReviews extends AppCompatActivity {
+public class ReadStallReviews extends NavigationMenuActivity {
     /**
      * The Index.
      */

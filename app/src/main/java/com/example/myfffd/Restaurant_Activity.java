@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * The type Restaurant activity.
  */
-public class Restaurant_Activity extends AppCompatActivity implements RestaurantAdaptor.EateryHolder.OnEateryClickListener {
+public class Restaurant_Activity extends NavigationMenuActivity implements RestaurantAdaptor.EateryHolder.OnEateryClickListener {
 
     /**
      * The Rv.
@@ -54,6 +54,10 @@ public class Restaurant_Activity extends AppCompatActivity implements Restaurant
                     startActivity(new Intent(Restaurant_Activity.this, AddRestaurant.class));
                 }
             });
+        }
+        else
+        {
+            btn_restaurant_add.setVisibility(View.INVISIBLE);
         }
 
         rv.setLayoutManager(new LinearLayoutManager(this)); // default vertical scrolling view

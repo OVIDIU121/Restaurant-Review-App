@@ -36,7 +36,7 @@ import java.util.Map;
 /**
  * The type Add restaurant.
  */
-public class AddRestaurant extends AppCompatActivity {
+public class AddRestaurant extends NavigationMenuActivity {
     /**
      * The Iv rest picture.
      */

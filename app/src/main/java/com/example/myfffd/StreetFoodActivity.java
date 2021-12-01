@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * The type Street food activity.
  */
-public class StreetFoodActivity extends AppCompatActivity implements StreetFoodAdaptor.StreetFoodHolder.OnStreetFoodClickListener {
+public class StreetFoodActivity extends NavigationMenuActivity implements StreetFoodAdaptor.StreetFoodHolder.OnStreetFoodClickListener {
 
     /**
      * The Rv.

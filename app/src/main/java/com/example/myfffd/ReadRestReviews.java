@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * The type Read rest reviews.
  */
-public class ReadRestReviews extends AppCompatActivity {
+public class ReadRestReviews extends NavigationMenuActivity {
     /**
      * The Index.
      */

@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * The type Stall write reviews.
  */
-public class StallWriteReviews extends AppCompatActivity {
+public class StallWriteReviews extends NavigationMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

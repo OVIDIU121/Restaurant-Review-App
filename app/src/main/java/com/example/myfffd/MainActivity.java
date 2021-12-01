@@ -2,21 +2,25 @@ package com.example.myfffd;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myfffd.models.User;
 import com.example.myfffd.utility.Session;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * The type Main activity.
  */
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends NavigationMenuActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,14 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        ImageView tv_main_profile_pic;
-        tv_main_profile_pic = findViewById(R.id.tv_main_profile_pic);
-        tv_main_profile_pic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Profile.class));
-            }
-        });
+
         ImageView img_main_restaurants;
         img_main_restaurants = findViewById(R.id.img_main_restaurants);
         img_main_restaurants.setOnClickListener(new View.OnClickListener() {
@@ -75,4 +72,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -15,7 +15,9 @@
         android:textColor="#4A4A4A"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/tx_update_info"
-        app:layout_constraintStart_toStartOf="@+id/tv_update_currentinfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_update_currentinfo" />
 
     <Button
@@ -29,7 +31,9 @@
         android:textSize="20sp"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tx_update_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tx_update_info"
         app:strokeColor="#fff" />
 
@@ -45,24 +49,10 @@
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/btn_update_info"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/tv_reg_ffbf7"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="47dp"
-        android:fontFamily="serif"
-        android:text="For foodies by foodies"
-        android:textColor="@color/logo_color"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/textView10"
@@ -72,8 +62,10 @@
         android:textColor="#4A4A4A"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/tv_update_currentinfo"
-        app:layout_constraintStart_toStartOf="@+id/tv_reg_ffbf7"
-        app:layout_constraintTop_toBottomOf="@+id/tv_reg_ffbf7" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_update_currentinfo"
@@ -86,6 +78,8 @@
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 </androidx.constraintlayout.widget.ConstraintLayout>

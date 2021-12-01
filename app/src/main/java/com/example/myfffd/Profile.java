@@ -40,7 +40,7 @@ import com.squareup.picasso.Picasso;
 /**
  * The type Profile.
  */
-public class Profile extends AppCompatActivity {
+public class Profile extends NavigationMenuActivity {
     /**
      * The Tv profile fn.
      */

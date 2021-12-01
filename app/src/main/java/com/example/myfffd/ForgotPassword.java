@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 /**
  * The type Forgot password.
  */
-public class ForgotPassword extends AppCompatActivity {
+public class ForgotPassword extends NavigationMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

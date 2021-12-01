@@ -16,7 +16,7 @@ import com.example.myfffd.models.Restaurant;
 /**
  * The type Book restaurant.
  */
-public class BookRestaurant extends AppCompatActivity {
+public class BookRestaurant extends NavigationMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

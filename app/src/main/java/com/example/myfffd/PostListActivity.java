@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * The type Post list activity.
  */
-public class PostListActivity extends AppCompatActivity {
+public class PostListActivity extends NavigationMenuActivity {
 
     private DatabaseReference mDatabaseReference;
     private RecyclerView recyclerView;

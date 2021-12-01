@@ -1,6 +1,9 @@
 package com.example.myfffd.models;
 
-public class User {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class User implements Parcelable {
     private String fn;
     private String sn;
     private String em;
@@ -91,4 +94,13 @@ public class User {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
 }

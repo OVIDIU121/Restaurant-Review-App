@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * The type Post add activity.
  */
-public class PostAddActivity extends AppCompatActivity {
+public class PostAddActivity extends NavigationMenuActivity {
     private ImageView iv_post_add;
     private EditText mPostTitle;
     private EditText mPostDesc;
