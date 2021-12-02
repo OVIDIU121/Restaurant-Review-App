@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroun"
-    tools:context=".StreetFoodDetails">
+    tools:context=".streetfood.StreetFoodDetails">
 
     <ScrollView
         android:id="@+id/scrollView23"

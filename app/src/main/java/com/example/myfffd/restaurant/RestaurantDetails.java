@@ -1,4 +1,4 @@
-package com.example.myfffd;
+package com.example.myfffd.restaurant;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.myfffd.NavigationMenuActivity;
+import com.example.myfffd.R;
 import com.example.myfffd.models.Restaurant;
 import com.example.myfffd.utility.Session;
 import com.squareup.picasso.Picasso;
@@ -25,6 +25,7 @@ public class RestaurantDetails extends NavigationMenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_details);
+        /*Define the variables and bind the to the view ID`s*/
         TextView tx_rest_details_name;
         final TextView tx_rest_details_tel;
         TextView tx_rest_details_desc;
@@ -47,9 +48,11 @@ public class RestaurantDetails extends NavigationMenuActivity {
         tx_rest_details_name.setText(restaurant.getName() + ", " + restaurant.getCity() + ", " + restaurant.getStreet() + ", " + restaurant.getPostcode());
         tx_rest_details_tel.setText(restaurant.getTel());
         tx_rest_details_desc.setText(restaurant.getDescription());
+        /*Load the restaurant profile pic into the image view*/
         Picasso.get().load(restaurant.getProfile_picture()).fit().into(iv_rest_details);
         rtb_rest_details.setRating(restaurant.getRating());
         rtb_rest_details.setIsIndicator(true);
+        /*Set button visibility based on user type*/
         if (Session.ActiveSession.user.getType().toLowerCase(Locale.ROOT).compareTo("critic") == 0
                 || Session.ActiveSession.user.getType().toLowerCase(Locale.ROOT).compareTo("admin") == 0) {
             btn_rest_details_write.setVisibility(View.VISIBLE);
@@ -60,8 +63,8 @@ public class RestaurantDetails extends NavigationMenuActivity {
         btn_rest_details_reserv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*Start next activity*/
                 Intent i = new Intent(RestaurantDetails.this, BookRestaurant.class);
-                i.putExtra("OBJECT", restaurant);
                 startActivity(i);
             }
         });
@@ -69,7 +72,8 @@ public class RestaurantDetails extends NavigationMenuActivity {
         btn_rest_details_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(RestaurantDetails.this, WriteReviews.class);
+                /*Start next activity and send clicked restaurant object*/
+                Intent i = new Intent(RestaurantDetails.this, RestaurantWriteReviews.class);
                 i.putExtra("OBJECT", restaurant);
                 startActivity(i);
             }
@@ -78,6 +82,7 @@ public class RestaurantDetails extends NavigationMenuActivity {
         btn_rest_details_read.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*Start next activity and send clicked restaurant object*/
                 Intent i = new Intent(RestaurantDetails.this, ReadRestReviews.class);
                 i.putExtra("OBJECT", restaurant);
                 startActivity(i);

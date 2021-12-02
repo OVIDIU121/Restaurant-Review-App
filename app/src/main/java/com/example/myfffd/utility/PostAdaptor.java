@@ -30,12 +30,24 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * The type Post adaptor.
+ */
 public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
 
     private final List<Post> postList;
+    /**
+     * The Listener.
+     */
     RestaurantAdaptor.EateryHolder.OnEateryClickListener listener;
     private Context context;
 
+    /**
+     * Instantiates a new Post adaptor.
+     *
+     * @param context  the context
+     * @param postList the post list
+     */
     public PostAdaptor(Context context, List<Post> postList) {
         this.context = context;
         this.postList = postList;
@@ -47,7 +59,7 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
     public PostAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.postrow, parent, false);
-
+        /*Inflate the view with postrow objects*/
         return new ViewHolder(view, context);
     }
 
@@ -56,10 +68,10 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
         Post post = this.postList.get(position);
         holder.title.setText(post.getTitle());
         holder.desc.setText(post.getDesc());
-        java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        /*Get post date time*/
         Date formattedDate = new Date((Long.valueOf(post.getTimestamp())));
         holder.timestamp.setText(formattedDate.toString());
+        /*Set post alias,desc, timestamp and profile pic*/
         holder.alias.setText(post.getAlias());
         FirebaseDatabase.getInstance().getReference("_user_").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -67,6 +79,7 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
                 for(DataSnapshot dss: snapshot.getChildren()){
                     User current_user = dss.getValue(User.class);
                     if(post.getUserid().equals(current_user.getAuth_id())){
+                        /*Load the image of the user that posted the post*/
                         Picasso.get().load(current_user.getProfile_pic_url()).fit().into(holder.iv_forum_avatar);
                     }
                 }
@@ -84,19 +97,49 @@ public class PostAdaptor extends RecyclerView.Adapter<PostAdaptor.ViewHolder> {
         return postList.size();
     }
 
+    /**
+     * The type View holder.
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        /**
+         * The Title.
+         */
         public TextView title;
+        /**
+         * The Desc.
+         */
         public TextView desc;
+        /**
+         * The Timestamp.
+         */
         public TextView timestamp;
+        /**
+         * The Image.
+         */
         public ImageView image;
+        /**
+         * The Alias.
+         */
         public TextView alias;
+        /**
+         * The Iv forum avatar.
+         */
         public ImageView iv_forum_avatar;
+        /**
+         * The Userid.
+         */
         String userid;
 
+        /**
+         * Instantiates a new View holder.
+         *
+         * @param view the view
+         * @param ctx  the ctx
+         */
         public ViewHolder(View view, Context ctx) {
             super(view);
-
+            /*Define the variables and bind the to the view ID`s*/
             context = ctx;
             alias = view.findViewById(R.id.userAliasPost);
             title = view.findViewById(R.id.postTitleList);

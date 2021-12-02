@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroun"
-    tools:context=".Register">
+    tools:context=".account.Register">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,8 +30,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="spread" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/et_reg_sname"
@@ -43,7 +42,7 @@
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:textStyle="bold|italic"
-                app:layout_constraintBottom_toTopOf="@+id/et_reg_email"
+                app:layout_constraintBottom_toTopOf="@+id/et_reg_alias"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +63,22 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_reg_pw" />
+
+            <EditText
+                android:id="@+id/et_reg_alias"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="serif"
+                android:hint="Alias"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/et_reg_email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_reg_sname" />
 
             <EditText
                 android:id="@+id/et_reg_pw"
@@ -87,12 +102,14 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
                 android:text="I accept the Terms of Service and Privacy Policy"
+                android:textAlignment="center"
+                android:textColor="#040404"
                 android:textSize="12sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/btn_reg_register"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.603"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/id_reg_check"
                 app:layout_constraintTop_toBottomOf="@+id/et_reg_cpw" />
 
             <Button
@@ -126,18 +143,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_reg_sname" />
+                app:layout_constraintTop_toBottomOf="@+id/et_reg_alias" />
 
             <CheckBox
                 android:id="@+id/id_reg_check"
                 android:layout_width="32dp"
                 android:layout_height="49dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.042"
+                app:layout_constraintBottom_toTopOf="@+id/btn_reg_register"
+                app:layout_constraintEnd_toStartOf="@+id/id_reg_checktext"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.788"
+                app:layout_constraintTop_toBottomOf="@+id/et_reg_cpw"
                 tools:ignore="TouchTargetSizeCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

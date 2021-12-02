@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroun"
-    tools:context=".Profile">
+    tools:context=".account.Profile">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -26,30 +26,13 @@
                 android:textAllCaps="false"
                 android:textColor="@color/button_text"
                 android:textSize="20sp"
+                android:visibility="invisible"
                 app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView19"
-                app:strokeColor="#fff" />
-
-            <Button
-                android:id="@+id/btn_profile_seeall_reviews"
-                android:layout_width="300dp"
-                android:layout_height="48dp"
-                android:backgroundTint="@color/button_background_tint"
-                android:text="See All Reviews"
-                android:textAllCaps="false"
-                android:textColor="@color/button_text"
-                android:textSize="16sp"
-                android:visibility="invisible"
-                app:cornerRadius="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_profile_upload"
+                app:layout_constraintTop_toBottomOf="@+id/tx_profile_hint"
                 app:strokeColor="#fff" />
 
             <Button
@@ -63,7 +46,7 @@
                 android:textSize="16sp"
                 android:visibility="invisible"
                 app:cornerRadius="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/btn_profile_seeall_reviews"
+                app:layout_constraintBottom_toTopOf="@+id/tableLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +58,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:text="Update profile photo"
+                android:text="Tap photo to update profile photo"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="16sp"
@@ -88,136 +71,158 @@
 
             <TableLayout
                 android:id="@+id/tableLayout"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/textView19"
+                android:padding="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/tx_profile_hint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_profile_seeall_reviews">
+                app:layout_constraintTop_toBottomOf="@+id/btn_profile_upload">
 
                 <TableRow
                     android:id="@+id/pf_fn"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="15dp">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingTop="10dp">
 
                     <TextView
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginRight="5dp"
                         android:text="First Name:"
                         android:textColor="#000000"
-                        android:textSize="17sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_profile_fn"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="TextView"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Confidential"
                         android:textColor="#424242"
-                        android:textSize="17sp"
+                        android:textSize="20sp"
                         android:textStyle="italic" />
 
                 </TableRow>
 
                 <TableRow
                     android:id="@+id/pf_sn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingTop="10dp">
 
                     <TextView
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginRight="5dp"
                         android:text="Last Name:"
                         android:textColor="#000000"
-                        android:textSize="17sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_profile_sn"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="TextView"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Confidential"
                         android:textColor="#424242"
-                        android:textSize="17sp"
+                        android:textSize="20sp"
                         android:textStyle="italic" />
                 </TableRow>
 
                 <TableRow
                     android:id="@+id/pf_alias"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingTop="10dp">
 
                     <TextView
                         android:id="@+id/textView7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginRight="5dp"
                         android:text="Alias:"
                         android:textColor="#000000"
-                        android:textSize="17sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_profile_alias"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="TextView"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Confidential"
                         android:textColor="#424242"
-                        android:textSize="17sp"
+                        android:textSize="20sp"
                         android:textStyle="italic" />
                 </TableRow>
 
                 <TableRow
                     android:id="@+id/pf_em"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingTop="10dp">
 
                     <TextView
                         android:id="@+id/textView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginRight="5dp"
                         android:text="Email:"
                         android:textColor="#000000"
-                        android:textSize="17sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_profile_em"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="TextView"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Confidential"
                         android:textColor="#424242"
-                        android:textSize="17sp"
+                        android:textSize="20sp"
                         android:textStyle="italic" />
                 </TableRow>
 
                 <TableRow
                     android:id="@+id/pf_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:paddingTop="10dp">
 
                     <TextView
                         android:id="@+id/textView9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginRight="5dp"
                         android:text="User Type:"
                         android:textColor="#000000"
-                        android:textSize="17sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_profile_type"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="TextView"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Confidential"
                         android:textColor="#424242"
-                        android:textSize="17sp"
+                        android:textSize="20sp"
                         android:textStyle="italic" />
                 </TableRow>
             </TableLayout>
@@ -251,14 +256,15 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/tx_profile_hint"
                 android:layout_width="298dp"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:text="These are the most updated informations that we have, if you would like to modify them please tap the relevant field !"
                 android:textAlignment="center"
                 android:textColor="#4E4E4E"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="italic"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/btn_profile_delete"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

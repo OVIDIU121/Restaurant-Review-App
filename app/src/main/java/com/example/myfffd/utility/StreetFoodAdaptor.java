@@ -15,11 +15,26 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+/**
+ * The type Street food adaptor.
+ */
 public class StreetFoodAdaptor extends RecyclerView.Adapter<StreetFoodAdaptor.StreetFoodHolder> {
+    /**
+     * The Street food list.
+     */
     List<StreetFood> streetFoodList;
 
+    /**
+     * The Listener.
+     */
     StreetFoodAdaptor.StreetFoodHolder.OnStreetFoodClickListener listener;
 
+    /**
+     * Instantiates a new Street food adaptor.
+     *
+     * @param streetFoodList the street food list
+     * @param _listener      the listener
+     */
     public StreetFoodAdaptor(List<StreetFood> streetFoodList, StreetFoodAdaptor.StreetFoodHolder.OnStreetFoodClickListener _listener) {
         this.streetFoodList = streetFoodList;
         listener = _listener;
@@ -51,11 +66,32 @@ public class StreetFoodAdaptor extends RecyclerView.Adapter<StreetFoodAdaptor.St
         return streetFoodList.size();
     }
 
+    /**
+     * The type Street food holder.
+     */
     public static class StreetFoodHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        /**
+         * The Iv.
+         */
         ImageView iv;
-        TextView tv, tv_description;
+        /**
+         * The Tv.
+         */
+        TextView tv, /**
+         * The Tv description.
+         */
+        tv_description;
+        /**
+         * The Listener.
+         */
         StreetFoodAdaptor.StreetFoodHolder.OnStreetFoodClickListener listener;
 
+        /**
+         * Instantiates a new Street food holder.
+         *
+         * @param itemView  the item view
+         * @param _listener the listener
+         */
         public StreetFoodHolder(@NonNull View itemView, StreetFoodAdaptor.StreetFoodHolder.OnStreetFoodClickListener _listener) {
             super(itemView);
             iv = itemView.findViewById(R.id.eatery_card_image);
@@ -70,7 +106,15 @@ public class StreetFoodAdaptor extends RecyclerView.Adapter<StreetFoodAdaptor.St
             listener.onStreetFoodClick(getAdapterPosition());// get index of the current clicked card
         }
 
+        /**
+         * The interface On street food click listener.
+         */
         public interface OnStreetFoodClickListener {
+            /**
+             * On street food click.
+             *
+             * @param index the index
+             */
             void onStreetFoodClick(int index);//abstract method
         }
 

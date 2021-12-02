@@ -1,5 +1,4 @@
-package com.example.myfffd;
-
+package com.example.myfffd.account;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -17,10 +16,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myfffd.NavigationMenuActivity;
+import com.example.myfffd.R;
+import com.example.myfffd.Welcome;
 import com.example.myfffd.models.Restaurant;
 import com.example.myfffd.models.StreetFood;
+import com.example.myfffd.models.User;
 import com.example.myfffd.utility.Session;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,7 +37,6 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
-
 
 /**
  * The type Profile.
@@ -57,9 +58,9 @@ public class Profile extends NavigationMenuActivity {
      * The Tv profile type.
      */
     tv_profile_type, /**
-     * The Tv profile change.
+     * The Tx profile hint.
      */
-    tv_profile_change;
+    tx_profile_hint;
     /**
      * The Iv profile avatar.
      */
@@ -88,28 +89,167 @@ public class Profile extends NavigationMenuActivity {
      */
     DatabaseReference dbref_streetFood = FirebaseDatabase.getInstance().getReference("_streetFood_");
     /**
+     * The Current user.
+     */
+    User current_user = Session.ActiveSession.user;
+    /**
      * The Dbref rest.
      */
     DatabaseReference dbref_rest = FirebaseDatabase.getInstance().getReference("_restaurants_");
     /**
      * The Update data.
      */
-    DatabaseReference updateData = FirebaseDatabase.getInstance().getReference("_user_").child(Session.ActiveSession.user.getAuth_id());
-
+    DatabaseReference updateData = FirebaseDatabase.getInstance().getReference("_user_").child(current_user.getAuth_id());
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        if (Session.ActiveSession.checkLogin()) {
+        /*Initialize the variables and bind the to the view ID`s*/
+        tv_profile_fn = findViewById(R.id.tv_profile_fn);
+        tv_profile_sn = findViewById(R.id.tv_profile_sn);
+        tv_profile_em = findViewById(R.id.tv_profile_em);
+        tv_profile_alias = findViewById(R.id.tv_profile_alias);
+        tv_profile_type = findViewById(R.id.tv_profile_type);
+        tx_profile_hint = findViewById(R.id.tx_profile_hint);
+        btn_profile_upload = findViewById(R.id.btn_profile_upload);
+        iv_profile_avatar = findViewById(R.id.iv_forum_avatar);
+        btn_profile_delete = findViewById(R.id.btn_profile_delete);
+        /*Get the user object from the navigation menu if it exists*/
+        User user = getIntent().getParcelableExtra("OBJECT");
+        if(user != null) {
+            /*replace the current_user with the user object that was searched in the navigation menu which reduces functionality*/
+            current_user = user;
+        }
+        if (!current_user.getProfile_pic_url().isEmpty()) {
+            String url2 = current_user.getProfile_pic_url();
+            Picasso.get().load(url2).fit().into(iv_profile_avatar);
+        }
+        /*check that the user object is the Active Session user or an admin and enable functionality accordingly*/
+        if ((Session.ActiveSession.checkLogin() && Session.ActiveSession.user.equals(current_user))|| Session.ActiveSession.user.getType().equals("admin")) {
+            uploadPicture();
+            deleteAccount();
             updateProfile();// enable changes for user
+            tv_profile_em.setText(current_user.getEm());
+            tv_profile_fn.setText(current_user.getFn());
+            tv_profile_sn.setText(current_user.getSn());
         }
 
+        tv_profile_alias.setText(current_user.getAlias());
+        tv_profile_type.setText(current_user.getType());
 
-        btn_profile_delete = findViewById(R.id.btn_profile_delete);
-        btn_profile_delete.setOnClickListener(new View.OnClickListener() {
+    }
+    /*Get the file extension method*/
+    private String getExtension(Uri path)
+    {
+        ContentResolver resolver = getContentResolver();
+        MimeTypeMap map = MimeTypeMap.getSingleton();
+        return map.getExtensionFromMimeType(resolver.getType(path));
+    }
+
+    /**
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        /*Load the picture in the Image view*/
+        if (requestCode == 150 && resultCode == Activity.RESULT_OK && data.getData() != null) {
+            Picasso.get().load(data.getData()).fit().into(iv_profile_avatar);
+            path = data.getData();
+        }
+    }
+
+    /**
+     * Update profile.
+     */
+    public void updateProfile() {
+        /*Define the variables and bind the to the view ID`s*/
+        TableRow pf_fn;
+        final TableRow pf_sn;
+        final TableRow pf_alias;
+        final TableRow pf_em;
+        TableRow pf_type;
+        pf_fn = findViewById(R.id.pf_fn);
+        pf_sn = findViewById(R.id.pf_sn);
+        pf_alias = findViewById(R.id.pf_alias);
+        pf_em = findViewById(R.id.pf_em);
+        pf_type = findViewById(R.id.pf_type);
+        /*Set the text visible*/
+        tx_profile_hint.setVisibility(View.VISIBLE);
+
+        /*Based on which field is clicked the cookie variable is assigned a value, which is used in the update_userinfo class
+        * in order to know which attribute to update*/
+        pf_fn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Session.ActiveSession.cookie = "fn";
+                Session.ActiveSession.option = tv_profile_fn.getText().toString();
+                startActivity(new Intent(Profile.this, update_userinfo.class));
+            }
+        });
+        pf_sn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Session.ActiveSession.cookie = "sn";
+                Session.ActiveSession.option = tv_profile_sn.getText().toString();
+                startActivity(new Intent(Profile.this, update_userinfo.class));
+            }
+        });
+        pf_alias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Session.ActiveSession.cookie = "alias";
+                Session.ActiveSession.option = tv_profile_alias.getText().toString();
+                startActivity(new Intent(Profile.this, update_userinfo.class));
+            }
+        });
+        pf_em.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Profile.this, "Email address can not be updated !", Toast.LENGTH_SHORT).show();
+            }
+        });
+        pf_type.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Check the the active session user is an admin*/
+                if (Session.ActiveSession.user.getType().compareTo("admin") == 0) {
+                    Session.ActiveSession.cookie = "type";
+                    Session.ActiveSession.option = tv_profile_type.getText().toString();
+                    startActivity(new Intent(Profile.this, update_userinfo.class));
+                } else {
+                    Toast.makeText(Profile.this, "Only admins can change user type", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        iv_profile_avatar.setOnClickListener(new View.OnClickListener() {
             /**
-             * @param v
+             * If the image is clicked, get the content from the user and set the upload button visible
              */
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent();
+                i.setType("image/*");
+                i.setAction(getIntent().ACTION_GET_CONTENT);
+                startActivityForResult(i, 150);
+                btn_profile_upload.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+
+    }
+
+    /**
+     * Delete account.
+     */
+    public void deleteAccount(){
+        btn_profile_delete.setVisibility(View.VISIBLE);
+        btn_profile_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(Profile.this)
@@ -127,7 +267,7 @@ public class Profile extends NavigationMenuActivity {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                 for (DataSnapshot rss : snapshot.getChildren()) {
-                                                    if (rss.getKey().equals(Session.ActiveSession.user.getAuth_id())) {
+                                                    if (rss.getKey().equals(current_user.getAuth_id())) {
                                                         dbref_streetFood.child(streetFood.getName() + "-" + streetFood.getLocation()).child("review").child(rss.getKey()).removeValue();
                                                     }
                                                 }
@@ -156,7 +296,7 @@ public class Profile extends NavigationMenuActivity {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                 for (DataSnapshot rss : snapshot.getChildren()) {
-                                                    if (rss.getKey().equals(Session.ActiveSession.user.getAuth_id())) {
+                                                    if (rss.getKey().equals(current_user.getAuth_id())) {
                                                         dbref_rest.child(restaurant.getName() + "-" + restaurant.getPostcode()).child("review").child(rss.getKey()).removeValue();
                                                     }
                                                 }
@@ -199,42 +339,17 @@ public class Profile extends NavigationMenuActivity {
                         .setNegativeButton(android.R.string.no, null).show();
             }
         });
+    }
 
-        tv_profile_fn = findViewById(R.id.tv_profile_fn);
-        tv_profile_sn = findViewById(R.id.tv_profile_sn);
-        tv_profile_em = findViewById(R.id.tv_profile_em);
-        tv_profile_alias = findViewById(R.id.tv_profile_alias);
-        tv_profile_type = findViewById(R.id.tv_profile_type);
-        tv_profile_fn.setText(Session.ActiveSession.user.getFn());
-        tv_profile_sn.setText(Session.ActiveSession.user.getSn());
-        tv_profile_em.setText(Session.ActiveSession.user.getEm());
-        tv_profile_alias.setText(Session.ActiveSession.user.getAlias());
-        tv_profile_type.setText(Session.ActiveSession.user.getType());
-        btn_profile_upload = findViewById(R.id.btn_profile_upload);
-        iv_profile_avatar = findViewById(R.id.iv_forum_avatar);
-        if (!Session.ActiveSession.user.getProfile_pic_url().isEmpty()) {
-            String url2 = Session.ActiveSession.user.getProfile_pic_url();
-            Picasso.get().load(url2).fit().into(iv_profile_avatar);
-        }
-        iv_profile_avatar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent();
-                i.setType("image/*");
-                i.setAction(getIntent().ACTION_GET_CONTENT);
-                startActivityForResult(i, 150);
-                btn_profile_upload.setVisibility(View.VISIBLE);
-
-            }
-        });
-
+    /**
+     * Upload picture.
+     */
+    public void uploadPicture(){
         sref = FirebaseStorage.getInstance().getReference("profile_photos");
-
-
         btn_profile_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String file_name = Session.ActiveSession.user.getAuth_id();
+                String file_name = current_user.getAuth_id();
                 StorageReference reference = sref.child(file_name + "." + getExtension(path));
                 reference.putFile(path).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -244,7 +359,7 @@ public class Profile extends NavigationMenuActivity {
                             public void onSuccess(Uri uri) {
                                 String url = uri.toString();// url of captured image
                                 updateData.child("profile_pic_url").setValue(url);
-                                Session.ActiveSession.user.setProfile_pic_url(url);
+                                current_user.setProfile_pic_url(url);
                                 Toast.makeText(Profile.this, "Successfully updated !", Toast.LENGTH_LONG).show();
                                 // update firebase user to be added
                             }
@@ -271,82 +386,6 @@ public class Profile extends NavigationMenuActivity {
 
             }
         });
-
     }
 
-    private String getExtension(Uri path)  // get file extension method
-    {
-        ContentResolver resolver = getContentResolver();
-        MimeTypeMap map = MimeTypeMap.getSingleton();
-        return map.getExtensionFromMimeType(resolver.getType(path));
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 150 && resultCode == Activity.RESULT_OK && data.getData() != null) {
-            Picasso.get().load(data.getData()).fit().into(iv_profile_avatar);
-            path = data.getData();
-        }
-    }
-
-    /**
-     * Update profile.
-     */
-    public void updateProfile() {
-        TableRow pf_fn;
-        final TableRow pf_sn;
-        final TableRow pf_alias;
-        final TableRow pf_em;
-        TableRow pf_type;
-        pf_fn = findViewById(R.id.pf_fn);
-        pf_sn = findViewById(R.id.pf_sn);
-        pf_alias = findViewById(R.id.pf_alias);
-        pf_em = findViewById(R.id.pf_em);
-        pf_type = findViewById(R.id.pf_type);
-        pf_fn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Session.ActiveSession.cookie = "fn";
-                Session.ActiveSession.option = tv_profile_fn.getText().toString();
-                startActivity(new Intent(Profile.this, update_userinfo.class));
-            }
-        });
-        pf_sn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Session.ActiveSession.cookie = "sn";
-                Session.ActiveSession.option = tv_profile_sn.getText().toString();
-                startActivity(new Intent(Profile.this, update_userinfo.class));
-            }
-        });
-        pf_alias.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Session.ActiveSession.cookie = "alias";
-                Session.ActiveSession.option = tv_profile_alias.getText().toString();
-                startActivity(new Intent(Profile.this, update_userinfo.class));
-            }
-        });
-        pf_em.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(Profile.this, "Email address can not be updated !", Toast.LENGTH_SHORT).show();
-            }
-        });
-        pf_type.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Session.ActiveSession.user.getType().compareTo("admin") == 0) {
-                    Session.ActiveSession.cookie = "type";
-                    Session.ActiveSession.option = tv_profile_type.getText().toString();
-                    startActivity(new Intent(Profile.this, update_userinfo.class));
-                } else {
-                    Toast.makeText(Profile.this, "Only admins can change user type", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-
-    }
 }

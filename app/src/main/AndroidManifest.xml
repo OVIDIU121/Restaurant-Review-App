@@ -10,67 +10,67 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFFFD">
         <activity
-            android:name=".PostAddActivity"
+            android:name=".forum.PostAddActivity"
             android:exported="false" />
         <activity
-            android:name=".PostListActivity"
+            android:name=".forum.PostListActivity"
             android:exported="false" />
         <activity
-            android:name=".ReadStallReviews"
+            android:name=".streetfood.ReadStallReviews"
             android:exported="false" />
         <activity
-            android:name=".StallWriteReviews"
+            android:name=".streetfood.StallWriteReviews"
             android:exported="false" />
         <activity
-            android:name=".StreetFoodDetails"
+            android:name=".streetfood.StreetFoodDetails"
             android:exported="false" />
         <activity
-            android:name=".AddStreetFood"
+            android:name=".streetfood.AddStreetFood"
             android:exported="false" />
         <activity
-            android:name=".StreetFoodActivity"
+            android:name=".streetfood.StreetFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".ReadRestReviews"
+            android:name=".restaurant.ReadRestReviews"
             android:exported="false" />
         <activity
-            android:name=".WriteReviews"
+            android:name=".restaurant.RestaurantWriteReviews"
             android:exported="false" />
         <activity
-            android:name=".BookRestaurant"
+            android:name=".restaurant.BookRestaurant"
             android:exported="false" />
         <activity
-            android:name=".RestaurantDetails"
+            android:name=".restaurant.RestaurantDetails"
             android:exported="false" />
         <activity
-            android:name=".AddRestaurant"
+            android:name=".restaurant.AddRestaurant"
             android:exported="false" />
         <activity
-            android:name=".Restaurant_Activity"
+            android:name=".restaurant.Restaurant_Activity"
             android:exported="false" />
         <activity
-            android:name=".update_userinfo"
+            android:name=".account.update_userinfo"
             android:exported="false" />
         <activity
-            android:name=".ForgotPassword"
+            android:name=".account.ForgotPassword"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Profile"
+            android:name=".account.Profile"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".account.Login"
             android:exported="false" />
         <activity
-            android:name=".ForumMain"
+            android:name=".forum.ForumMain"
             android:exported="false" />
         <activity
-            android:name=".TermsAndConditions"
+            android:name=".account.TermsAndConditions"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".account.Register"
             android:exported="false" />
         <activity
             android:name=".Welcome"

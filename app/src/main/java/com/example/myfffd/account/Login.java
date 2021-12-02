@@ -1,4 +1,4 @@
-package com.example.myfffd;
+package com.example.myfffd.account;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myfffd.MainActivity;
+import com.example.myfffd.R;
 import com.example.myfffd.models.User;
 import com.example.myfffd.utility.AuthenticationUtility;
 import com.example.myfffd.utility.Session;
@@ -24,22 +26,27 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 /**
- * The type Login.
+ * The type Login. This class will help the user login.
  */
 public class Login extends AppCompatActivity {
 
+    /**
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         TextView textView = findViewById(R.id.tv_main_regnow);
+        /*Start the register activity if the register text is clicked*/
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this, Register.class));
             }
         });
-        //login
+        /*Define the variables and bind the to the view ID`s*/
         FirebaseAuth mAuth;
         mAuth = FirebaseAuth.getInstance();
         EditText login_email;
@@ -53,18 +60,21 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String sEmail = login_email.getText().toString();
                 String sPass = login_password.getText().toString();
-                if (!AuthenticationUtility.isEmailValid(sEmail)) // check field not empty
+                /*Check if the email is valid*/
+                if (!AuthenticationUtility.isEmailValid(sEmail))
                 {
                     Toast.makeText(Login.this, "Please Check Your login Credentials !", Toast.LENGTH_LONG).show();
                     login_email.requestFocus();
                     return;
                 }
-                if (!AuthenticationUtility.isPasswordValid(sPass))// check field not empty
+                /*Check if the password is valid*/
+                if (!AuthenticationUtility.isPasswordValid(sPass))
                 {
                     Toast.makeText(Login.this, "Please Check Your login Credentials !", Toast.LENGTH_LONG).show();
                     login_password.requestFocus();
                     return;
                 }
+                /*Try to login with the provided details*/
                 mAuth.signInWithEmailAndPassword(sEmail, sPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -75,28 +85,33 @@ public class Login extends AppCompatActivity {
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                             for (DataSnapshot dss : snapshot.getChildren()) {
                                                 User current_user = dss.getValue(User.class);
+                                                /*Check that the logged in user has a user object in Realtime Database*/
                                                 if (mAuth.getUid().equals(current_user.getAuth_id())) {
-                                                    Session.ActiveSession.user = current_user; // save user in active session
+                                                    /*Save a copy of the user object in the Active Session static class*/
+                                                    Session.ActiveSession.user = current_user;
                                                 }
                                             }
                                         }
-
                                         @Override
                                         public void onCancelled(@NonNull DatabaseError error) {
+                                            /*Error not handled yet*/
                                             System.out.println(error);
                                         }
                                     });
-                            startActivity(new Intent(Login.this, MainActivity.class));// what activity to start if login is successful
+                            /*Start Main Activity when the login process is successful*/
+                            startActivity(new Intent(Login.this, MainActivity.class));
                             Toast.makeText(Login.this, "Login Successful !", Toast.LENGTH_SHORT).show();
                             finish();
-                            // save the current logged in user details in active session
-                        } else {
+                        }
+                        else
+                            {
                             Toast.makeText(Login.this, "Please Check Your login Credentials", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
         });
+        /*Create a listener for the forgot password text view and direct the user to the forgot password activity if pressed*/
         TextView forgotPW;
         forgotPW = findViewById(R.id.tv_main_forgotpw);
         forgotPW.setOnClickListener(new View.OnClickListener() {

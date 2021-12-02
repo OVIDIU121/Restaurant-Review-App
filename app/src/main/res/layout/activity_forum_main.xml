@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroun"
-    tools:context=".ForumMain">
+    tools:context=".forum.ForumMain">
 
     <TextView
         android:id="@+id/tv_adash_fffd4"

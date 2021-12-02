@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroun"
-    tools:context=".Restaurant_Activity">
+    tools:context=".restaurant.Restaurant_Activity">
 
     <Button
         android:id="@+id/btn_restaurant_add"

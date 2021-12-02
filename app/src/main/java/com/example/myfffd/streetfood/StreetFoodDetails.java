@@ -1,4 +1,4 @@
-package com.example.myfffd;
+package com.example.myfffd.streetfood;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.myfffd.NavigationMenuActivity;
+import com.example.myfffd.R;
 import com.example.myfffd.models.StreetFood;
 import com.squareup.picasso.Picasso;
 
@@ -23,6 +23,7 @@ public class StreetFoodDetails extends NavigationMenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_street_food_details);
+        /*Define the variables and bind the to the view ID`s*/
         TextView tx_stall_details_name;
         TextView tx_stall_details_desc;
         ImageView iv_stall_details;
@@ -30,7 +31,6 @@ public class StreetFoodDetails extends NavigationMenuActivity {
         Button btn_stall_details_read;
         Button btn_stall_details_write;
         CheckBox checkbox_streetfoord_detail;
-
         tx_stall_details_name = findViewById(R.id.tx_stall_details_name);
         tx_stall_details_desc = findViewById(R.id.tx_stall_details_desc);
         iv_stall_details = findViewById(R.id.iv_stall_details);
@@ -41,10 +41,10 @@ public class StreetFoodDetails extends NavigationMenuActivity {
 
         //receive the parcelable info
         StreetFood streetFood = getIntent().getParcelableExtra("STALL");
-
         checkbox_streetfoord_detail.setChecked(streetFood.isVegetarian());
         checkbox_streetfoord_detail.setEnabled(false);
         tx_stall_details_name.setText(streetFood.getName() + ", " + streetFood.getLocation());
+        /*Load the StreetFood profile pic into the image view*/
         tx_stall_details_desc.setText(streetFood.getDescription());
         Picasso.get().load(streetFood.getProfile_picture()).fit().into(iv_stall_details);
         rtb_stall_details.setRating(streetFood.getRating());
@@ -53,6 +53,7 @@ public class StreetFoodDetails extends NavigationMenuActivity {
         btn_stall_details_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*Start next activity and send clicked restaurant object*/
                 Intent i = new Intent(StreetFoodDetails.this, StallWriteReviews.class);
                 i.putExtra("STALL", streetFood);
                 startActivity(i);
@@ -62,6 +63,7 @@ public class StreetFoodDetails extends NavigationMenuActivity {
         btn_stall_details_read.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*Start next activity and send clicked restaurant object*/
                 Intent i = new Intent(StreetFoodDetails.this, ReadStallReviews.class);
                 i.putExtra("STALL", streetFood);
                 startActivity(i);

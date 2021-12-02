@@ -1,4 +1,4 @@
-package com.example.myfffd;
+package com.example.myfffd.streetfood;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,10 +6,11 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myfffd.NavigationMenuActivity;
+import com.example.myfffd.R;
 import com.example.myfffd.models.StreetFood;
 import com.example.myfffd.utility.StreetFoodAdaptor;
 import com.google.firebase.database.DataSnapshot;
@@ -42,6 +43,7 @@ public class StreetFoodActivity extends NavigationMenuActivity implements Street
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_street_food);
+        /*Define the variables and bind the to the view ID`s*/
         rv = findViewById(R.id.streetFood_rv);
         Button btn_streetfood_add;
         btn_streetfood_add = findViewById(R.id.btn_streetfood_add);
@@ -57,9 +59,11 @@ public class StreetFoodActivity extends NavigationMenuActivity implements Street
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dss : snapshot.getChildren()) {
+                    /*Add all StreetFood objects from Firebase to a List*/
                     streetFoodList.add(dss.getValue(StreetFood.class));
                 }
                 adaptor = new StreetFoodAdaptor(streetFoodList, StreetFoodActivity.this);
+                /*Send the StreetFood list to the recycler view*/
                 rv.setAdapter(adaptor);
             }
 
@@ -73,6 +77,7 @@ public class StreetFoodActivity extends NavigationMenuActivity implements Street
 
     @Override
     public void onStreetFoodClick(int index) {
+        /*Start the next activity and send the clicked restaurant object to it*/
         Intent i = new Intent(this, StreetFoodDetails.class);
         i.putExtra("STALL", streetFoodList.get(index));
         startActivity(i);
