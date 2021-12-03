@@ -89,18 +89,21 @@ public class NavigationMenuActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 User foundUser = getAlias(query);
                 /*Check if the alias exists in the database */
-                if(foundUser == null){
-                    Toast.makeText(NavigationMenuActivity.this,"User not found",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    /*Start next activity based on user choice*/
-                    Intent i = new Intent(NavigationMenuActivity.this, Profile.class);
-                    i.putExtra("OBJECT", foundUser);
-                    startActivity(i);
-                    Toast.makeText(NavigationMenuActivity.this,"User found",Toast.LENGTH_SHORT).show();
-                    searchView.setQuery("", false);
+                if (foundUser == null)
+                {
+
                     searchView.clearFocus();
                 }
+
+                /*Check if the alias exists in the database */
+                else{
+
+
+                    searchView.setQuery("", false);
+                            searchView.clearFocus();
+                }
+
+
                 return false;
             }
 
@@ -122,15 +125,36 @@ public class NavigationMenuActivity extends AppCompatActivity {
     public User getAlias(String query){
         /*Initiate Firebase instance*/
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("_user_");
+        final User[] user = new User[1];
+        final User[] user_return = new User[1];
+
         dbref.orderByChild("alias").equalTo(query).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             /*Check if the user exists in database*/
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     for (DataSnapshot dss: snapshot.getChildren()){
-                        User user = dss.getValue(User.class);
-                        userList.add(user);
+                        user[0] = dss.getValue(User.class);
+                        userList.add(user[0]);
+
                     }
+                    /*Return the user which matches the alias searched*/
+                    for(User user: userList) {
+                        String currentAlias = user.getAlias();
+                        if (currentAlias.equals(query)) {
+                            Toast.makeText(NavigationMenuActivity.this, "User found", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NavigationMenuActivity.this, "", Toast.LENGTH_SHORT).show();
+                            user_return[0] = user;
+                            Intent i = new Intent(NavigationMenuActivity.this, Profile.class);
+                            i.putExtra("OBJECT", user_return[0]);
+                            startActivity(i);
+                        }
+
+                    }
+
+                }
+                else {
+                    Toast.makeText(NavigationMenuActivity.this, "User not found",Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -138,13 +162,7 @@ public class NavigationMenuActivity extends AppCompatActivity {
 
             }
         });
-        /*Return the user which matches the alias searched*/
-        for(User user: userList){
-            String currentAlias = user.getAlias();
-            if(currentAlias.equals(query)){
-                return user;
-            }
-        }
+
         return null;
     }
 
