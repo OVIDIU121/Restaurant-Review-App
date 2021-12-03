@@ -32,7 +32,6 @@ public class BookRestaurant extends NavigationMenuActivity {
         tx_book_name = findViewById(R.id.tx_review_read_name);
         btn_book_reserve = findViewById(R.id.btn_review_read_next);
         dt_book_picker = findViewById(R.id.dt_book_picker);
-        tx_book_name.setText(restaurant.getName());
         /*Set a listener for the book button*/
         btn_book_reserve.setOnClickListener(new View.OnClickListener() {
             @Override

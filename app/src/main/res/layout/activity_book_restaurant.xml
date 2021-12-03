@@ -24,7 +24,7 @@
                 android:layout_width="300dp"
                 android:layout_height="30dp"
                 android:fontFamily="serif"
-                android:hint="Restaurant name"
+                android:hint="Book your table"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="20sp"

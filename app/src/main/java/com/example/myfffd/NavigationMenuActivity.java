@@ -37,6 +37,7 @@ public class NavigationMenuActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         MenuItem menu_signout =menu.findItem(R.id.menu_signout);
+        /*Sign out the user on back press*/
         menu_signout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -55,6 +56,7 @@ public class NavigationMenuActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         MenuItem menu_profile_pic = menu.findItem(R.id.menu_profile_pic);
         menu_profile_pic.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
@@ -145,4 +147,5 @@ public class NavigationMenuActivity extends AppCompatActivity {
         }
         return null;
     }
+
 }

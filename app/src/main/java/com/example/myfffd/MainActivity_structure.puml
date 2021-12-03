@@ -1,0 +1,619 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": ""
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false // root node is included
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "com.example.myfffd.MainActivity"
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1322970774 { 
+   	label=example
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_458601938 { 
+   	label=myfffd
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   AddRestaurant1587922736[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AddRestaurant</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   iv_rest_picture: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   path: Uri [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   rest_pic: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   sref: StorageReference [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- getExtension(path: Uri): String</TD></TR>
+<TR><TD ALIGN="LEFT" ># onActivityResult(requestCode: int, resultCode: int, data: Intent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >- uploadPic(current_rest_id: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+AddStreetFood888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AddStreetFood</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   iv_stall_picture: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   path: Uri [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   sref: StorageReference [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   stall_pic: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- getExtension(path: Uri): String</TD></TR>
+<TR><TD ALIGN="LEFT" ># onActivityResult(requestCode: int, resultCode: int, data: Intent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >- uploadPic(current_stall_id: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+BookRestaurant1587922736[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BookRestaurant</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EateryHolder331182989[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EateryHolder</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   iv: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   listener: OnEateryClickListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv_description: TextView [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ onClick(v: View)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ForgotPassword350600570[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ForgotPassword</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ForumMain897437778[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ForumMain</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+MainActivity323259963[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MainActivity</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+NavigationMenuActivity323259963[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)NavigationMenuActivity</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   userList: List&lt;User&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getAlias(query: String): User</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateOptionsMenu(menu: Menu): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Post1850795651[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Post</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   alias: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   desc: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   image: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   timestamp: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   title: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   userid: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PostAdaptor1412940985[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PostAdaptor</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   context: Context [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   listener: OnEateryClickListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   postList: List&lt;Post&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ onBindViewHolder(holder: ViewHolder, position: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateViewHolder(parent: ViewGroup, viewType: int): ViewHolder</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PostAddActivity897437778[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PostAddActivity</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   iv_post_add: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mAuth: FirebaseAuth [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mPostDatabase: DatabaseReference [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mPostDesc: EditText [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mPostTitle: EditText [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mProgress: ProgressDialog [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSubmitButton: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mUser: FirebaseUser [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >- startPosting()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PostListActivity897437778[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PostListActivity</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   forumList: List&lt;Post&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mAuth: FirebaseAuth [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mDatabase: FirebaseDatabase [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mDatabaseReference: DatabaseReference [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mUser: FirebaseUser [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   postAdaptor: PostAdaptor [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   recyclerView: RecyclerView [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onStart()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Profile350600570[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Profile</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   btn_profile_delete: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   btn_profile_upload: Button [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   current_user: User [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   dbref_rest: DatabaseReference [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   dbref_streetFood: DatabaseReference [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   iv_profile_avatar: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mAuth: FirebaseAuth [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   path: Uri [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   sref: StorageReference [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv_profile_alias: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv_profile_em: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv_profile_fn: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv_profile_sn: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv_profile_type: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tx_profile_hint: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   updateData: DatabaseReference [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ deleteAccount()</TD></TR>
+<TR><TD ALIGN="LEFT" >- getExtension(path: Uri): String</TD></TR>
+<TR><TD ALIGN="LEFT" ># onActivityResult(requestCode: int, resultCode: int, data: Intent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateProfile()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ uploadPicture()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ReadRestReviews1587922736[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ReadRestReviews</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   index: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ReadStallReviews888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ReadStallReviews</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   index: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Restaurant1850795651[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Restaurant</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   city: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   description: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   postcode: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   profile_picture: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rating: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   review: Map&lt;String, String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   street: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tel: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ describeContents(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ writeToParcel(dest: Parcel, flags: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RestaurantAdaptor1412940985[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RestaurantAdaptor</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   listener: OnEateryClickListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   restaurantList: List&lt;Restaurant&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ onBindViewHolder(holder: EateryHolder, position: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateViewHolder(parent: ViewGroup, viewType: int): EateryHolder</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RestaurantDetails1587922736[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RestaurantDetails</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RestaurantWriteReviews1587922736[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RestaurantWriteReviews</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Restaurant_Activity1587922736[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Restaurant_Activity</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   adaptor: RestaurantAdaptor [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   restaurantList: List&lt;Restaurant&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   rv: RecyclerView [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onEateryClick(index: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StallWriteReviews888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StallWriteReviews</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFood1850795651[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFood</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   description: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   location: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   profile_picture: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rating: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   review: Map&lt;String, String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   vegetarian: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ describeContents(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ writeToParcel(dest: Parcel, flags: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFoodActivity888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFoodActivity</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   adaptor: StreetFoodAdaptor [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   rv: RecyclerView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   streetFoodList: List&lt;StreetFood&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onStreetFoodClick(index: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFoodAdaptor1412940985[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFoodAdaptor</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   listener: OnStreetFoodClickListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   streetFoodList: List&lt;StreetFood&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ onBindViewHolder(holder: StreetFoodHolder, position: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateViewHolder(parent: ViewGroup, viewType: int): StreetFoodHolder</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFoodDetails888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFoodDetails</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFoodHolder1809824815[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFoodHolder</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   iv: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   listener: OnStreetFoodClickListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv_description: TextView [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ onClick(v: View)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+User1850795651[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)User</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   alias: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   auth_id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   em: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   fn: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   profile_pic_url: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pw: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   sn: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ describeContents(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ writeToParcel(dest: Parcel, flags: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+update_userinfo350600570[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)update_userinfo</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >- update(i: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+EateryHolder331182989 -> Restaurant_Activity1587922736[label="listener
+[0..1]"];
+NavigationMenuActivity323259963 -> AddRestaurant1587922736[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> AddStreetFood888696716[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> BookRestaurant1587922736[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> ForgotPassword350600570[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> ForumMain897437778[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> MainActivity323259963[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> PostAddActivity897437778[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> PostListActivity897437778[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> Profile350600570[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> ReadRestReviews1587922736[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> ReadStallReviews888696716[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> RestaurantDetails1587922736[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> RestaurantWriteReviews1587922736[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> Restaurant_Activity1587922736[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> StallWriteReviews888696716[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> StreetFoodActivity888696716[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> StreetFoodDetails888696716[arrowhead=none, arrowtail=empty, dir=both];
+NavigationMenuActivity323259963 -> User1850795651[label="userList
+[0..*]"];
+NavigationMenuActivity323259963 -> update_userinfo350600570[arrowhead=none, arrowtail=empty, dir=both];
+PostAdaptor1412940985 -> Post1850795651[label="postList
+[0..*]"];
+PostAdaptor1412940985 -> Restaurant_Activity1587922736[label="listener
+[0..1]"];
+PostListActivity897437778 -> Post1850795651[label="forumList
+[0..*]"];
+PostListActivity897437778 -> PostAdaptor1412940985[label="postAdaptor
+[0..1]"];
+Profile350600570 -> User1850795651[label="current_user
+[0..1]"];
+RestaurantAdaptor1412940985 -> Restaurant1850795651[label="restaurantList
+[0..*]"];
+RestaurantAdaptor1412940985 -> Restaurant_Activity1587922736[label="listener
+[0..1]"];
+Restaurant_Activity1587922736 -> Restaurant1850795651[label="restaurantList
+[0..*]"];
+Restaurant_Activity1587922736 -> RestaurantAdaptor1412940985[label="adaptor
+[0..1]"];
+StreetFoodActivity888696716 -> StreetFood1850795651[label="streetFoodList
+[0..*]"];
+StreetFoodActivity888696716 -> StreetFoodAdaptor1412940985[label="adaptor
+[0..1]"];
+StreetFoodAdaptor1412940985 -> StreetFood1850795651[label="streetFoodList
+[0..*]"];
+StreetFoodAdaptor1412940985 -> StreetFoodActivity888696716[label="listener
+[0..1]"];
+StreetFoodHolder1809824815 -> StreetFoodActivity888696716[label="listener
+[0..1]"];
+    
+}
+@enduml
