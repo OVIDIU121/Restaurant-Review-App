@@ -1,6 +1,7 @@
 package com.example.myfffd.restaurant;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -19,6 +20,8 @@ import androidx.annotation.Nullable;
 import com.example.myfffd.NavigationMenuActivity;
 import com.example.myfffd.R;
 import com.example.myfffd.models.Restaurant;
+import com.example.myfffd.streetfood.AddStreetFood;
+import com.example.myfffd.streetfood.StreetFoodActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -143,6 +146,7 @@ public class AddRestaurant extends NavigationMenuActivity {
                                     uploadPic(rest_id);
                                 }
                                 /*Send various Toasts to user based on circumstances*/
+                                startActivity(new Intent(AddRestaurant.this, StreetFoodActivity.class));
                                 Toast.makeText(AddRestaurant.this, "Restaurant successfully added to app !", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -180,7 +184,10 @@ public class AddRestaurant extends NavigationMenuActivity {
      * @param current_rest_id , Upload picture to firebase, get download URL and save the url in the Firebase object
      */
     private void uploadPic(String current_rest_id) {
+        ProgressDialog mProgress = new ProgressDialog(this);
         StorageReference reference = sref.child(current_rest_id + "." + getExtension(path));
+        mProgress.show();
+        mProgress.setMessage("Uploading the picture...");
         reference.putFile(path).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -188,11 +195,13 @@ public class AddRestaurant extends NavigationMenuActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         String url = uri.toString();
+                        mProgress.dismiss();
                         FirebaseDatabase.getInstance().getReference("_restaurants_").child(current_rest_id).child("profile_picture").setValue(url);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        mProgress.dismiss();
                         Toast.makeText(AddRestaurant.this, "File could not be uploaded, please check your internet connectivity !", Toast.LENGTH_SHORT).show();
                         reference.delete();
                     }
@@ -201,6 +210,7 @@ public class AddRestaurant extends NavigationMenuActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                mProgress.dismiss();
                 Toast.makeText(AddRestaurant.this, "File could not be uploaded, please check your internet connectivity !", Toast.LENGTH_LONG).show();
 
             }

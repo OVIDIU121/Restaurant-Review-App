@@ -1,6 +1,7 @@
 package com.example.myfffd.account;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -76,6 +78,7 @@ public class Profile extends NavigationMenuActivity {
      * The Sref.
      */
     StorageReference sref;
+
     /**
      * The Path.
      */
@@ -330,7 +333,7 @@ public class Profile extends NavigationMenuActivity {
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(Profile.this, "Account could not be deleted, please check yout internet connection !", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Profile.this, "Account could not be deleted, please check your internet connection !", Toast.LENGTH_SHORT).show();
                                         }
                                     });
                                 }
@@ -345,13 +348,18 @@ public class Profile extends NavigationMenuActivity {
      * Upload picture.
      */
     public void uploadPicture(){
+        ProgressDialog mProgress = new ProgressDialog(this);
         sref = FirebaseStorage.getInstance().getReference("profile_photos");
         btn_profile_upload.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 String file_name = current_user.getAuth_id();
                 StorageReference reference = sref.child(file_name + "." + getExtension(path));
+                mProgress.show();
+                mProgress.setMessage("Uploading the picture...");
                 reference.putFile(path).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -360,6 +368,7 @@ public class Profile extends NavigationMenuActivity {
                                 String url = uri.toString();// url of captured image
                                 updateData.child("profile_pic_url").setValue(url);
                                 current_user.setProfile_pic_url(url);
+                                mProgress.dismiss();
                                 Toast.makeText(Profile.this, "Successfully updated !", Toast.LENGTH_LONG).show();
                                 // update firebase user to be added
                             }
@@ -368,6 +377,7 @@ public class Profile extends NavigationMenuActivity {
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(Profile.this, "File could not be uploaded, please check your internet connectivity !", Toast.LENGTH_LONG).show();
                                 reference.delete();
+                                mProgress.dismiss();
                             }
                         });
 
@@ -375,7 +385,8 @@ public class Profile extends NavigationMenuActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Profile.this, e.toString(), Toast.LENGTH_LONG).show();
+                        mProgress.dismiss();
+                        Toast.makeText(Profile.this,"Please check your internet connectivity !",Toast.LENGTH_SHORT).show();
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override

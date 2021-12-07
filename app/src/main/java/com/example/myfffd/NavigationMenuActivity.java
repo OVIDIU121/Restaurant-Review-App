@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * The type Navigation menu activity.
@@ -87,23 +88,8 @@ public class NavigationMenuActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                User foundUser = getAlias(query);
+                User foundUser = getAlias(query.toLowerCase(Locale.ROOT));
                 /*Check if the alias exists in the database */
-                if (foundUser == null)
-                {
-
-                    searchView.clearFocus();
-                }
-
-                /*Check if the alias exists in the database */
-                else{
-
-
-                    searchView.setQuery("", false);
-                            searchView.clearFocus();
-                }
-
-
                 return false;
             }
 
@@ -143,7 +129,6 @@ public class NavigationMenuActivity extends AppCompatActivity {
                         String currentAlias = user.getAlias();
                         if (currentAlias.equals(query)) {
                             Toast.makeText(NavigationMenuActivity.this, "User found", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(NavigationMenuActivity.this, "", Toast.LENGTH_SHORT).show();
                             user_return[0] = user;
                             Intent i = new Intent(NavigationMenuActivity.this, Profile.class);
                             i.putExtra("OBJECT", user_return[0]);

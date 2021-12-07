@@ -34,18 +34,18 @@ config=StructureConfiguration;
     "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
     "removeByClassName": "",
     "cutMappings": false,
-    "cutEnum": true,
-    "cutTests": true,
-    "cutClient": true,
+    "cutEnum": false,
+    "cutTests": false,
+    "cutClient": false,
     "cutDataAccess": false,
     "cutInterfaceStructures": false,
     "cutDataStructures": false,
-    "cutGetterAndSetter": true,
-    "cutConstructors": true
+    "cutGetterAndSetter": false,
+    "cutConstructors": false
   },
   "graphTraversal": {
-    "forwardDepth": 6,
-    "backwardDepth": 6,
+    "forwardDepth": 3,
+    "backwardDepth": 3,
     "classPackageExcludeFilter": "",
     "classPackageIncludeFilter": "",
     "classNameExcludeFilter": "",
@@ -65,7 +65,7 @@ config=StructureConfiguration;
     "showMethodParameterNames": true,
     "showMethodParameterTypes": true,
     "showMethodReturnType": true,
-    "showPackageLevels": 2,
+    "showPackageLevels": 3,
     "showDetailedClassStructure": true
   },
   "rootClass": "com.example.myfffd.MainActivity"
@@ -92,100 +92,7 @@ subgraph cluster_1322970774 {
 	fillcolor="#d8d8d8"
 	style=filled
    
-   AddRestaurant1587922736[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)AddRestaurant</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >#   iv_rest_picture: ImageView [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   path: Uri [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   rest_pic: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   sref: StorageReference [0..1]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >- getExtension(path: Uri): String</TD></TR>
-<TR><TD ALIGN="LEFT" ># onActivityResult(requestCode: int, resultCode: int, data: Intent)</TD></TR>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-<TR><TD ALIGN="LEFT" >- uploadPic(current_rest_id: String)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-AddStreetFood888696716[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)AddStreetFood</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >#   iv_stall_picture: ImageView [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   path: Uri [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   sref: StorageReference [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   stall_pic: String [0..1]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >- getExtension(path: Uri): String</TD></TR>
-<TR><TD ALIGN="LEFT" ># onActivityResult(requestCode: int, resultCode: int, data: Intent)</TD></TR>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-<TR><TD ALIGN="LEFT" >- uploadPic(current_stall_id: String)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-BookRestaurant1587922736[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)BookRestaurant</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-EateryHolder331182989[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)EateryHolder</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >#   iv: ImageView [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   listener: OnEateryClickListener [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   tv: TextView [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   tv_description: TextView [0..1]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >+ onClick(v: View)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-ForgotPassword350600570[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)ForgotPassword</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-ForumMain897437778[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)ForumMain</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-MainActivity323259963[
+   MainActivity323259963[
 	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
 <TR><TD ALIGN="LEFT" >(C)MainActivity</TD></TR>
 <HR/>
@@ -212,16 +119,23 @@ NavigationMenuActivity323259963[
 	fillcolor="#FFFFFF"
 ];
 
-Post1850795651[
+subgraph cluster_1431839316 { 
+   	label=utility
+	labeljust=l
+	fillcolor="#c4c4c4"
+	style=filled
+   
+   EateryHolder331182989[
 	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)Post</TD></TR>
+<TR><TD ALIGN="LEFT" >(C)EateryHolder</TD></TR>
 <HR/>
-<TR><TD ALIGN="LEFT" >-   alias: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   desc: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   image: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   timestamp: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   title: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   userid: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   iv: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   listener: OnEateryClickListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv_description: TextView [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ EateryHolder(itemView: View, _listener: OnEateryClickListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onClick(v: View)</TD></TR>
 </TABLE>>
 	style=filled
 	margin=0
@@ -237,8 +151,165 @@ PostAdaptor1412940985[
 <TR><TD ALIGN="LEFT" >#   listener: OnEateryClickListener [0..1]</TD></TR>
 <TR><TD ALIGN="LEFT" >-   postList: List&lt;Post&gt; [0..*]</TD></TR>
 <HR/>
+<TR><TD ALIGN="LEFT" >+ PostAdaptor(context: Context, postList: List&lt;Post&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getItemCount(): int</TD></TR>
 <TR><TD ALIGN="LEFT" >+ onBindViewHolder(holder: ViewHolder, position: int)</TD></TR>
 <TR><TD ALIGN="LEFT" >+ onCreateViewHolder(parent: ViewGroup, viewType: int): ViewHolder</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RestaurantAdaptor1412940985[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RestaurantAdaptor</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   listener: OnEateryClickListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   restaurantList: List&lt;Restaurant&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ RestaurantAdaptor(restaurantList: List&lt;Restaurant&gt;, _listener: OnEateryClickListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getItemCount(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onBindViewHolder(holder: EateryHolder, position: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateViewHolder(parent: ViewGroup, viewType: int): EateryHolder</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFoodAdaptor1412940985[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFoodAdaptor</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   listener: OnStreetFoodClickListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   streetFoodList: List&lt;StreetFood&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ StreetFoodAdaptor(streetFoodList: List&lt;StreetFood&gt;, _listener: OnStreetFoodClickListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getItemCount(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onBindViewHolder(holder: StreetFoodHolder, position: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateViewHolder(parent: ViewGroup, viewType: int): StreetFoodHolder</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFoodHolder1809824815[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFoodHolder</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   iv: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   listener: OnStreetFoodClickListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tv_description: TextView [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ StreetFoodHolder(itemView: View, _listener: OnStreetFoodClickListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onClick(v: View)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1443959135 { 
+   	label=streetfood
+	labeljust=l
+	fillcolor="#c4c4c4"
+	style=filled
+   
+   AddStreetFood888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AddStreetFood</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   iv_stall_picture: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   path: Uri [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   sref: StorageReference [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   stall_pic: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- getExtension(path: Uri): String</TD></TR>
+<TR><TD ALIGN="LEFT" ># onActivityResult(requestCode: int, resultCode: int, data: Intent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >- uploadPic(current_stall_id: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ReadStallReviews888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ReadStallReviews</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   index: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StallWriteReviews888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StallWriteReviews</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFoodActivity888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFoodActivity</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   adaptor: StreetFoodAdaptor [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   rv: RecyclerView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   streetFoodList: List&lt;StreetFood&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onStreetFoodClick(index: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFoodDetails888696716[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFoodDetails</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1611011743 { 
+   	label=forum
+	labeljust=l
+	fillcolor="#c4c4c4"
+	style=filled
+   
+   ForumMain897437778[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ForumMain</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
 </TABLE>>
 	style=filled
 	margin=0
@@ -288,6 +359,187 @@ PostListActivity897437778[
 	shape=plaintext
 	fillcolor="#FFFFFF"
 ];
+} 
+
+subgraph cluster_1798215210 { 
+   	label=models
+	labeljust=l
+	fillcolor="#c4c4c4"
+	style=filled
+   
+   Post1850795651[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Post</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   alias: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   desc: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   image: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   timestamp: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   title: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   userid: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Post()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ Post(title: String, desc: String, image: String, timestamp: String, userid: String, alias: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getAlias(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDesc(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getImage(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getTimestamp(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getTitle(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getUserid(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setAlias(alias: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setDesc(desc: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setImage(image: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setTimestamp(timestamp: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setTitle(title: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setUserid(userid: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Restaurant1850795651[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Restaurant</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   city: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   description: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   postcode: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   profile_picture: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rating: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   review: Map&lt;String, String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   street: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tel: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Restaurant()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ Restaurant(name: String, city: String, street: String, tel: String, postcode: String, profile_picture: String, description: String, rating: float, review: Map&lt;String, String&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" ># Restaurant(in: Parcel)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ describeContents(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getCity(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDescription(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getName(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getPostcode(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getProfile_picture(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getRating(): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getReview(): Map&lt;String, String&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getStreet(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getTel(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setCity(city: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setDescription(description: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setName(name: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setPostcode(postcode: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setProfile_picture(profile_picture: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setRating(rating: float)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setReview(review: Map&lt;String, String&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setStreet(street: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setTel(tel: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ writeToParcel(dest: Parcel, flags: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StreetFood1850795651[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StreetFood</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   description: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   location: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   profile_picture: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rating: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   review: Map&lt;String, String&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   vegetarian: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ StreetFood()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ StreetFood(name: String, location: String, profile_picture: String, description: String, vegetarian: boolean, rating: float, review: Map&lt;String, String&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" ># StreetFood(in: Parcel)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ describeContents(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDescription(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getLocation(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getName(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getProfile_picture(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getRating(): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getReview(): Map&lt;String, String&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isVegetarian(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setDescription(description: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setLocation(location: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setName(name: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setProfile_picture(profile_picture: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setRating(rating: float)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setReview(review: Map&lt;String, String&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setVegetarian(vegetarian: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ writeToParcel(dest: Parcel, flags: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+User1850795651[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)User</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   alias: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   auth_id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   em: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   fn: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   profile_pic_url: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pw: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   sn: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   type: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ User()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ User(fn: String, sn: String, em: String, pw: String, auth_id: String, alias: String, type: String, profile_pic_url: String)</TD></TR>
+<TR><TD ALIGN="LEFT" ># User(in: Parcel)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ describeContents(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getAlias(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getAuth_id(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getEm(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getFn(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getProfile_pic_url(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getPw(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getSn(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getType(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setAlias(alias: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setAuth_id(auth_id: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setEm(em: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setFn(fn: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setProfile_pic_url(profile_pic_url: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setPw(pw: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setSn(sn: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setType(type: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ writeToParcel(dest: Parcel, flags: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1800787565 { 
+   	label=account
+	labeljust=l
+	fillcolor="#c4c4c4"
+	style=filled
+   
+   ForgotPassword350600570[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ForgotPassword</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
 
 Profile350600570[
 	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
@@ -323,6 +575,58 @@ Profile350600570[
 	fillcolor="#FFFFFF"
 ];
 
+update_userinfo350600570[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)update_userinfo</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >- update(i: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2143185155 { 
+   	label=restaurant
+	labeljust=l
+	fillcolor="#c4c4c4"
+	style=filled
+   
+   AddRestaurant1587922736[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AddRestaurant</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   iv_rest_picture: ImageView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   path: Uri [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   rest_pic: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   sref: StorageReference [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- getExtension(path: Uri): String</TD></TR>
+<TR><TD ALIGN="LEFT" ># onActivityResult(requestCode: int, resultCode: int, data: Intent)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >- uploadPic(current_rest_id: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+BookRestaurant1587922736[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BookRestaurant</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
 ReadRestReviews1587922736[
 	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
 <TR><TD ALIGN="LEFT" >(C)ReadRestReviews</TD></TR>
@@ -330,59 +634,6 @@ ReadRestReviews1587922736[
 <TR><TD ALIGN="LEFT" >#   index: int [1]</TD></TR>
 <HR/>
 <TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-ReadStallReviews888696716[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)ReadStallReviews</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >#   index: int [1]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-Restaurant1850795651[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)Restaurant</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >-   city: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   description: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   postcode: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   profile_picture: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   rating: float [1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   review: Map&lt;String, String&gt; [0..*]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   street: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   tel: String [0..1]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >+ describeContents(): int</TD></TR>
-<TR><TD ALIGN="LEFT" >+ writeToParcel(dest: Parcel, flags: int)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-RestaurantAdaptor1412940985[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)RestaurantAdaptor</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >#   listener: OnEateryClickListener [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   restaurantList: List&lt;Restaurant&gt; [0..*]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >+ onBindViewHolder(holder: EateryHolder, position: int)</TD></TR>
-<TR><TD ALIGN="LEFT" >+ onCreateViewHolder(parent: ViewGroup, viewType: int): EateryHolder</TD></TR>
 </TABLE>>
 	style=filled
 	margin=0
@@ -430,136 +681,7 @@ Restaurant_Activity1587922736[
 	shape=plaintext
 	fillcolor="#FFFFFF"
 ];
-
-StallWriteReviews888696716[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)StallWriteReviews</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-StreetFood1850795651[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)StreetFood</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >-   description: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   location: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   profile_picture: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   rating: float [1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   review: Map&lt;String, String&gt; [0..*]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   vegetarian: boolean [1]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >+ describeContents(): int</TD></TR>
-<TR><TD ALIGN="LEFT" >+ writeToParcel(dest: Parcel, flags: int)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-StreetFoodActivity888696716[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)StreetFoodActivity</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >#   adaptor: StreetFoodAdaptor [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   rv: RecyclerView [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   streetFoodList: List&lt;StreetFood&gt; [0..*]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-<TR><TD ALIGN="LEFT" >+ onStreetFoodClick(index: int)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-StreetFoodAdaptor1412940985[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)StreetFoodAdaptor</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >#   listener: OnStreetFoodClickListener [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   streetFoodList: List&lt;StreetFood&gt; [0..*]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >+ onBindViewHolder(holder: StreetFoodHolder, position: int)</TD></TR>
-<TR><TD ALIGN="LEFT" >+ onCreateViewHolder(parent: ViewGroup, viewType: int): StreetFoodHolder</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-StreetFoodDetails888696716[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)StreetFoodDetails</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-StreetFoodHolder1809824815[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)StreetFoodHolder</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >#   iv: ImageView [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   listener: OnStreetFoodClickListener [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   tv: TextView [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >#   tv_description: TextView [0..1]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >+ onClick(v: View)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-User1850795651[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)User</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >-   alias: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   auth_id: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   em: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   fn: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   profile_pic_url: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   pw: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   sn: String [0..1]</TD></TR>
-<TR><TD ALIGN="LEFT" >-   type: String [0..1]</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" >+ describeContents(): int</TD></TR>
-<TR><TD ALIGN="LEFT" >+ writeToParcel(dest: Parcel, flags: int)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
-
-update_userinfo350600570[
-	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
-<TR><TD ALIGN="LEFT" >(C)update_userinfo</TD></TR>
-<HR/>
-<TR><TD ALIGN="LEFT" ># onCreate(savedInstanceState: Bundle)</TD></TR>
-<TR><TD ALIGN="LEFT" >- update(i: String)</TD></TR>
-</TABLE>>
-	style=filled
-	margin=0
-	shape=plaintext
-	fillcolor="#FFFFFF"
-];
+} 
 } 
 } 
 
@@ -586,8 +708,6 @@ NavigationMenuActivity323259963 -> StreetFoodDetails888696716[arrowhead=none, ar
 NavigationMenuActivity323259963 -> User1850795651[label="userList
 [0..*]"];
 NavigationMenuActivity323259963 -> update_userinfo350600570[arrowhead=none, arrowtail=empty, dir=both];
-PostAdaptor1412940985 -> Post1850795651[label="postList
-[0..*]"];
 PostAdaptor1412940985 -> Restaurant_Activity1587922736[label="listener
 [0..1]"];
 PostListActivity897437778 -> Post1850795651[label="forumList
@@ -596,8 +716,6 @@ PostListActivity897437778 -> PostAdaptor1412940985[label="postAdaptor
 [0..1]"];
 Profile350600570 -> User1850795651[label="current_user
 [0..1]"];
-RestaurantAdaptor1412940985 -> Restaurant1850795651[label="restaurantList
-[0..*]"];
 RestaurantAdaptor1412940985 -> Restaurant_Activity1587922736[label="listener
 [0..1]"];
 Restaurant_Activity1587922736 -> Restaurant1850795651[label="restaurantList
@@ -608,8 +726,6 @@ StreetFoodActivity888696716 -> StreetFood1850795651[label="streetFoodList
 [0..*]"];
 StreetFoodActivity888696716 -> StreetFoodAdaptor1412940985[label="adaptor
 [0..1]"];
-StreetFoodAdaptor1412940985 -> StreetFood1850795651[label="streetFoodList
-[0..*]"];
 StreetFoodAdaptor1412940985 -> StreetFoodActivity888696716[label="listener
 [0..1]"];
 StreetFoodHolder1809824815 -> StreetFoodActivity888696716[label="listener

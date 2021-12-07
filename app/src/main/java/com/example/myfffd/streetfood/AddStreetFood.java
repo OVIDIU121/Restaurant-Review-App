@@ -1,6 +1,7 @@
 package com.example.myfffd.streetfood;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -116,6 +117,7 @@ public class AddStreetFood extends NavigationMenuActivity {
                                             /*upload a pic to Firebase storage if a file has been selected by the user*/
                                             uploadPic(stall_id);
                                         }
+                                        startActivity(new Intent(AddStreetFood.this, StreetFoodActivity.class));
                                         Toast.makeText(AddStreetFood.this, "Street Food Stall successfully added to app !", Toast.LENGTH_SHORT).show();
                                     } else {
                                         Toast.makeText(AddStreetFood.this, "Current Street Food Stall  is already registered !", Toast.LENGTH_SHORT).show();
@@ -170,7 +172,10 @@ public class AddStreetFood extends NavigationMenuActivity {
      * @param current_stall_id Upload picture to firebase, get download URL and save the url in the Firebase object
      */
     private void uploadPic(String current_stall_id) {
+        ProgressDialog mProgress = new ProgressDialog(this);
         StorageReference reference = sref.child(current_stall_id + "." + getExtension(path));
+        mProgress.show();
+        mProgress.setMessage("Uploading the picture...");
         reference.putFile(path).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -178,11 +183,13 @@ public class AddStreetFood extends NavigationMenuActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         String url = uri.toString();
+                        mProgress.dismiss();
                         FirebaseDatabase.getInstance().getReference("_streetFood_").child(current_stall_id).child("profile_picture").setValue(url);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        mProgress.dismiss();
                         Toast.makeText(AddStreetFood.this, "File could not be uploaded, please check your internet connectivity !", Toast.LENGTH_SHORT).show();
                         reference.delete();
                     }
@@ -191,6 +198,7 @@ public class AddStreetFood extends NavigationMenuActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                mProgress.dismiss();
                 Toast.makeText(AddStreetFood.this, "File could not be uploaded, please check your internet connectivity !", Toast.LENGTH_LONG).show();
 
             }

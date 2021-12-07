@@ -17,6 +17,7 @@ import com.example.myfffd.models.User;
 import com.example.myfffd.utility.AuthenticationUtility;
 import com.example.myfffd.utility.Session;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -107,6 +108,12 @@ public class Login extends AppCompatActivity {
                             {
                             Toast.makeText(Login.this, "Please Check Your login Credentials", Toast.LENGTH_SHORT).show();
                         }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        System.out.println(e);
+                        Toast.makeText(Login.this,"Please check your internet connectivity !",Toast.LENGTH_SHORT).show();
                     }
                 });
             }

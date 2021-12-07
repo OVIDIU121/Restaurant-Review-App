@@ -13,6 +13,7 @@ import com.example.myfffd.NavigationMenuActivity;
 import com.example.myfffd.R;
 import com.example.myfffd.utility.AuthenticationUtility;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -54,10 +55,16 @@ public class ForgotPassword extends NavigationMenuActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
 
-                                Toast.makeText(getApplicationContext(), "Verification email sent to: " + sEmail, Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Verification email sent to: " + sEmail, Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(getApplicationContext(), "Failed to send email to: " + sEmail + " please check that you provided the correct e-mail address !", Toast.LENGTH_LONG).show();
                             }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println(e);
+                            Toast.makeText(ForgotPassword.this,"Please check your internet conenctivity !",Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
