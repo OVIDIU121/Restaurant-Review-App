@@ -1,10 +1,12 @@
 package com.example.myfffd.forum;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -75,13 +78,21 @@ public class PostListActivity extends NavigationMenuActivity {
     protected void onStart() {
         super.onStart();
         mDatabaseReference.addChildEventListener(new ChildEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 /*Get every post object from FB and add it to the forumList List*/
                 Post post = dataSnapshot.getValue(Post.class);
                 forumList.add(post);
-                /*Sort the list*/
-                Collections.reverse(forumList);
+                /*Sorting the list*/
+                Collections.sort(forumList, new Comparator<Post>() {
+                    @Override
+                    public int compare(Post o1, Post o2) {
+                        if (o1.getTimestamp() == null || o2.getTimestamp() == null)
+                            return 0;
+                        return o2.getTimestamp().compareTo(o1.getTimestamp());
+                    }
+                });
                 postAdaptor = new PostAdaptor(PostListActivity.this, forumList);
                 /*Send the post object list to the recycler view*/
                 recyclerView.setAdapter(postAdaptor);

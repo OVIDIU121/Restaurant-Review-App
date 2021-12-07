@@ -88,7 +88,7 @@ public class NavigationMenuActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                User foundUser = getAlias(query.toLowerCase(Locale.ROOT));
+                User foundUser = getAlias(query);
                 /*Check if the alias exists in the database */
                 return false;
             }
@@ -121,6 +121,7 @@ public class NavigationMenuActivity extends AppCompatActivity {
                 if(snapshot.exists()){
                     for (DataSnapshot dss: snapshot.getChildren()){
                         user[0] = dss.getValue(User.class);
+                        System.out.println(user[0].getEm());
                         userList.add(user[0]);
 
                     }
