@@ -119,6 +119,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tx_stall_read_name"
                 tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/btn_stall_delete_review"
+                android:layout_width="300dp"
+                android:layout_height="58dp"
+                android:layout_marginBottom="4dp"
+                android:backgroundTint="@color/button_background_tint"
+                android:text="Delete review"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text"
+                android:textSize="20sp"
+                android:visibility="invisible"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_stall_read_next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_stall_read_review" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

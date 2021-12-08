@@ -1,18 +1,24 @@
 package com.example.myfffd.restaurant;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myfffd.NavigationMenuActivity;
 import com.example.myfffd.R;
 import com.example.myfffd.models.Restaurant;
 import com.example.myfffd.models.User;
+import com.example.myfffd.streetfood.ReadStallReviews;
+import com.example.myfffd.streetfood.StreetFoodActivity;
+import com.example.myfffd.utility.Session;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,13 +46,15 @@ public class ReadRestReviews extends NavigationMenuActivity {
         final TextView tx_rest_read_review;
         TextView tx_rest_read_review_alias;
         Button btn_review_read_next;
-        Button btn_review_read_previous;
+        Button btn_review_read_previous,btn_rest_delete_review;
         RatingBar rtb_review_read_rating;
         Restaurant restaurant = getIntent().getParcelableExtra("OBJECT");
         String rest_id = restaurant.getName() + "-" + restaurant.getPostcode();
         DatabaseReference dbref_rest = FirebaseDatabase.getInstance().getReference("_restaurants_").child(rest_id).child("review");
         List<String> idList = new ArrayList<String>();
         List<String> reviewList = new ArrayList<String>();
+        final String[] reviewToDelete = new String[1];
+        btn_rest_delete_review = findViewById(R.id.btn_rest_delete_review);
         tx_review_read_name = findViewById(R.id.tx_review_read_name);
         tx_rest_read_review = findViewById(R.id.tx_rest_read_review);
         tx_rest_read_review_alias = findViewById(R.id.tx_rest_read_review_alias);
@@ -79,6 +87,15 @@ public class ReadRestReviews extends NavigationMenuActivity {
                                     if (idList.get(index).equals(current_user.getAuth_id())) {
                                         tx_rest_read_review_alias.setText(current_user.getAlias());
                                     }
+                                    if(idList.get(index).equals(Session.ActiveSession.user.getAuth_id()) ||
+                                            Session.ActiveSession.user.getType().equals("admin")){
+                                        reviewToDelete[0] = idList.get(index);
+                                        btn_rest_delete_review.setVisibility(View.VISIBLE);
+                                    }
+                                    else
+                                    {
+                                        btn_rest_delete_review.setVisibility(View.INVISIBLE);
+                                    }
                                 }
                             }
                             @Override
@@ -102,6 +119,15 @@ public class ReadRestReviews extends NavigationMenuActivity {
                                                 /*Find the User alias based on user auth_id stored with the review*/
                                                 if (idList.get(index).equals(current_user.getAuth_id())) {
                                                     tx_rest_read_review_alias.setText(current_user.getAlias());
+                                                }
+                                                if(idList.get(index).equals(Session.ActiveSession.user.getAuth_id()) ||
+                                                        Session.ActiveSession.user.getType().equals("admin")){
+                                                    reviewToDelete[0] = idList.get(index);
+                                                    btn_rest_delete_review.setVisibility(View.VISIBLE);
+                                                }
+                                                else
+                                                {
+                                                    btn_rest_delete_review.setVisibility(View.INVISIBLE);
                                                 }
                                             }
                                         }
@@ -131,6 +157,15 @@ public class ReadRestReviews extends NavigationMenuActivity {
                                                 if (idList.get(index).equals(current_user.getAuth_id())) {
                                                     tx_rest_read_review_alias.setText(current_user.getAlias());
                                                 }
+                                                if(idList.get(index).equals(Session.ActiveSession.user.getAuth_id()) ||
+                                                        Session.ActiveSession.user.getType().equals("admin")){
+                                                    reviewToDelete[0] = idList.get(index);
+                                                    btn_rest_delete_review.setVisibility(View.VISIBLE);
+                                                }
+                                                else
+                                                {
+                                                    btn_rest_delete_review.setVisibility(View.INVISIBLE);
+                                                }
                                             }
                                         }
 
@@ -150,6 +185,18 @@ public class ReadRestReviews extends NavigationMenuActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 System.out.println(error);
+            }
+        });
+        btn_rest_delete_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbref_rest.child(reviewToDelete[0]).removeValue(new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                        startActivity(new Intent(ReadRestReviews.this, Restaurant_Activity.class));
+                        Toast.makeText(ReadRestReviews.this,"Review deleted",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
